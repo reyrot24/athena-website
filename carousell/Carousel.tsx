@@ -1,5 +1,3 @@
-"use client";
-
 import EmblaCarousel from "./EmblaCarousel";
 import { EmblaOptionsType } from "embla-carousel";
 import "./embla.css";
@@ -7,9 +5,5 @@ import "./embla.css";
 const OPTIONS: EmblaOptionsType = { align: "start", loop: true };
 
 export function Carousell() {
-  return (
-    <div>
-      <EmblaCarousel options={OPTIONS} />
-    </div>
-  );
+  return <EmblaCarousel options={OPTIONS} />;
 }

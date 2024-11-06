@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Zoom from "react-medium-image-zoom";
-import "./styles.css";
+import "../styles.css";
 
 type ImageProps = { src: string; alt: string };
 
@@ -27,13 +27,13 @@ const item = {
 };
 
 const SectionCorsi = (props: Props) => {
-  const { heading, corsi } = {
+  const { /* heading */ corsi } = {
     ...props,
   } as Props;
   return (
     <section className="mb-20 container">
-      <h1 className="flex justify-center items-center mb-14 text-4xl font-bold md:mb-20 md:text-6xl">
-        {heading}
+      <h1 className="flex text-accentYellow justify-center items-center mb-14 text-4xl font-bold md:mb-20 md:text-6xl">
+        I NOSTRI CORSI
       </h1>
       <motion.div className=" container grid grid-cols-1 md:grid-cols-3 gap-16">
         {corsi.map((corso, i) => (
@@ -45,11 +45,11 @@ const SectionCorsi = (props: Props) => {
             viewport={{ once: true }}
             key={i}
           >
-            <div className="relative flex items-center ">
+            <div className="relative flex items-center  ">
               <Zoom>
                 <Image
                   src={corso.image.src}
-                  className="object-contain border border-accentYellow"
+                  className="object-contain border border-accentYellow rounded-lg"
                   alt={corso.image.alt}
                   width={500}
                   height={500}

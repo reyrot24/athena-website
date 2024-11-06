@@ -5,6 +5,7 @@ import { Input } from "../ui/Input";
 import { Textarea } from "../ui/Textarea";
 import { Button } from "../ui/Button";
 import { Checkbox } from "../ui/Checkbox";
+import Link from "next/link";
 
 type ButtonProps = {
   text: string;
@@ -79,14 +80,14 @@ const ContactForm = (props: ContactProps) => {
         />
         <Label htmlFor="terms" className="cursor-pointer text-lg">
           Accetto i{" "}
-          <a
-            className="text-link-primary underline ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-primary focus-visible:ring-offset-2"
+          <Link
+            className="text-text underline ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-primary focus-visible:ring-offset-2"
             href="#"
             target="_blank"
             rel="noopener noreferrer"
           >
             Termini di Servizio
-          </a>
+          </Link>
         </Label>
       </div>
       <div>

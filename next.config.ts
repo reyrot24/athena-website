@@ -8,6 +8,7 @@ const nextConfig = {
       },
     ],
   },
+  transpilePackages: ["@mep-agency/next-iubenda"],
 };
 
 export default nextConfig;

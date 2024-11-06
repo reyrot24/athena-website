@@ -5,7 +5,7 @@ import {schemaTypes} from './schemaTypes'
 
 export default defineConfig({
   name: 'default',
-  title: 'Athena palestra',
+  title: 'SSD Cam Athena',
 
   projectId: 'b0b0ndzw',
   dataset: 'production',

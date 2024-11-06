@@ -25,7 +25,7 @@ export type Testimonial18Props = React.ComponentPropsWithoutRef<"section"> &
   Partial<Props>;
 
 const SectionTestimonianze = (props: Testimonial18Props) => {
-  const { heading, description, testimonials } = {
+  const { heading, testimonials } = {
     ...Testimonial18Defaults,
     ...props,
   } as Props;

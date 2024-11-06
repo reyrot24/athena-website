@@ -7,25 +7,6 @@ import Link from "next/link";
 import React from "react";
 import { RxChevronRight } from "react-icons/rx";
 
-const images = [
-  {
-    src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
-    id: 1,
-  },
-  {
-    src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
-    id: 2,
-  },
-  {
-    src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
-    id: 3,
-  },
-  {
-    src: "https://relume-assets.s3.amazonaws.com/placeholder-image.svg",
-    id: 4,
-  },
-];
-
 type Props = {
   slug: string;
 };

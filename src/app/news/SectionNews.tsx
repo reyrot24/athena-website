@@ -5,6 +5,7 @@ import { newstypes } from "@/types/news";
 import Image from "next/image";
 import Link from "next/link";
 import { RxChevronRight } from "react-icons/rx";
+/* import Search from "./Search"; */
 
 type Props = {
   heading: string;
@@ -26,9 +27,10 @@ export const SectionNews = async (props: Layout236Props) => {
       <h1 className="flex justify-center items-center mb-14 text-4xl font-bold text-text-alternative md:mb-20 md:text-6xl">
         {heading}
       </h1>
-      <div className="container grid grid-cols-2 items-start gap-x-4 gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
+      {/*     <Search news={news} /> */}
+      <div className="container grid grid-cols-1 sm:grid-cols-2 items-start gap-x-4 gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
         {news.map((articol) => (
-          <div key={articol.slug} className="h-full flex">
+          <div key={articol.slug} className="h-full flex justify-center">
             <Link
               href={`/news/${articol.slug}`}
               className="flex flex-col justify-between"

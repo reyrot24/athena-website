@@ -1,14 +1,16 @@
-import { Input } from "@/components/ui/Input";
-import { FaXTwitter } from "react-icons/fa6";
-import {
-  BiLogoFacebookCircle,
-  BiLogoInstagram,
-  BiLogoLinkedinSquare,
-  BiLogoYoutube,
-} from "react-icons/bi";
-import { Button } from "@/components/ui/Button";
+"use client";
+/* import { Input } from "@/components/ui/Input"; */
+import { BiLogoFacebookCircle, BiLogoInstagram } from "react-icons/bi";
+/* import { Button } from "@/components/ui/Button"; */
 import Link from "next/link";
 import Image from "next/image";
+import {
+  CookiePolicyLink,
+  PrivacyPolicyLink,
+} from "@/components/clientComponents/Privacy";
+import Loader from "@/components/clientComponents/Loader";
+import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 type ImageProps = {
   url?: string;
@@ -67,97 +69,124 @@ export type Footer2Props = React.ComponentPropsWithoutRef<"section"> &
 export const Footer = (props: Footer2Props) => {
   const {
     logo,
-    newsletterHeading,
+    /* newsletterHeading,
     newsletterDescription,
     inputPlaceholder,
     button,
-    termsAndConditions,
+    termsAndConditions, */
     columnLinks,
     socialMediaLinks,
     footerText,
-    footerLinks,
     address,
     contact,
   } = {
     ...Footer2Defaults,
     ...props,
   } as Props;
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate an API call
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 4000);
+  }, []);
+
   return (
-    <footer className="px-[5%] py-12 md:py-18 lg:pb-10 lg:pt-20 bg-bg text-text">
-      <div className="container border-[1px] border-accentYellow px-8">
-        <div className="grid grid-cols-1 items-start gap-y-12 pb-6 md:gap-y-16 md:pb-8 lg:grid-cols-[1fr_0.5fr] lg:gap-y-4 lg:pb-10">
-          <div className="grid grid-cols-1 items-start gap-y-10 sm:grid-cols-2 sm:gap-y-12 sm:gap-x-12 lg:grid-cols-2">
-            <div>
-              <Link
-                href={logo.url!}
-                className="sm:col-start-1 sm:col-end-4 sm:row-start-1 sm:row-end-2 lg:col-start-auto lg:col-end-auto lg:row-start-auto lg:row-end-auto"
-              >
-                <Image src={logo.src} alt={logo.alt!} width={80} height={80} />
-              </Link>
-              <div className="mb-6 md:mb-8">
-                <div className="mt-6">
-                  <p className="mb-1 text-2xl tracking-wider font-medium">
-                    {address.label}
-                  </p>
-                  <p className="mb-5 text-lg tracking-wide md:mb-6  ">
-                    {address.value}
-                  </p>
-                </div>
+    <AnimatePresence>
+      {isLoading ? (
+        <motion.div exit={{ opacity: 0, z: 100 }}>
+          <Loader where="" />
+        </motion.div>
+      ) : (
+        <footer className="px-[5%] py-12 md:py-18 lg:pb-10 lg:pt-20 bg-bg text-text">
+          <div className="container border-[1px] border-accentYellow px-8">
+            <div className="grid grid-cols-1 items-start gap-y-12 pb-6 md:gap-y-16 md:pb-8 lg:grid-cols-[1fr_0.5fr] lg:gap-y-4 lg:pb-10">
+              <div className="grid grid-cols-1 items-start gap-y-10 sm:grid-cols-2 sm:gap-y-12 sm:gap-x-12 lg:grid-cols-2">
                 <div>
-                  <p className="mb-1 text-2xl tracking-wider font-medium ">
-                    {contact.label}
-                  </p>
-                  <p className="flex flex-col text-lg tracking-wide underline decoration-black underline-offset-1 md:mb-6">
-                    <a
-                      href={`tel:${contact.phone}`}
-                      className="focus-visible:outline-none "
-                    >
-                      {contact.phone}
-                    </a>
-                    <a
-                      href={`mailto:${contact.email}`}
-                      className="focus-visible:outline-none"
-                    >
-                      {contact.email}
-                    </a>
-                  </p>
-                </div>
-              </div>
-              <div className="grid grid-flow-col grid-cols-[max-content] items-start justify-start gap-x-3 gap-y-0">
-                {socialMediaLinks.map((link, index) => (
-                  <a
-                    key={index}
-                    href={link.url}
-                    className="focus-visible:outline-none border-[0.5px] border-transparent hover:border-accentYellow rounded-full"
-                  >
-                    {link.icon}
-                  </a>
-                ))}
-              </div>
-            </div>
-            <div className="flex flex-col items-start justify-start mt-10">
-              <h2 className="mb-3 text-2xl tracking-wider font-medium md:mb-4">
-                Tutti i link
-              </h2>
-              {columnLinks.map((link, index) => (
-                <div
-                  key={index}
-                  className="py-2 block text-lg tracking-wider focus-visible:outline-none animation-linkFooter"
-                >
                   <Link
-                    href={link.url}
-                    className="flex items-center gap-3 focus-visible:outline-none "
+                    href={logo.url!}
+                    className="sm:col-start-1 sm:col-end-4 sm:row-start-1 sm:row-end-2 lg:col-start-auto lg:col-end-auto lg:row-start-auto lg:row-end-auto"
                   >
-                    {link.title}
+                    <Image
+                      src={logo.src}
+                      alt={logo.alt!}
+                      width={80}
+                      height={80}
+                    />
                   </Link>
+                  <div className="mb-6 md:mb-8">
+                    <div className="mt-6">
+                      <p className="mb-1 text-2xl tracking-wider font-medium">
+                        {address.label}
+                      </p>
+                      <p className="mb-5 text-lg tracking-wide md:mb-6  ">
+                        {address.value}
+                      </p>
+                    </div>
+                    <div>
+                      <p className="mb-1 text-2xl tracking-wider font-medium ">
+                        {contact.label}
+                      </p>
+                      <p className="flex flex-col text-lg tracking-wide underline decoration-black underline-offset-1 md:mb-6">
+                        <a
+                          href={`tel:${contact.phone}`}
+                          className="focus-visible:outline-none "
+                        >
+                          {contact.phone}
+                        </a>
+                        <a
+                          href={`mailto:${contact.email}`}
+                          className="focus-visible:outline-none"
+                        >
+                          {contact.email}
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                  <div className="grid grid-flow-col grid-cols-[max-content] items-start justify-start gap-x-3 gap-y-0">
+                    {socialMediaLinks.map((link, index) => (
+                      <a
+                        key={index}
+                        target="_blank" // Opens in a new tab
+                        rel="noopener noreferrer" // Security best practice
+                        href={link.url}
+                        className="focus-visible:outline-none border-[0.5px] border-transparent hover:border-accentYellow rounded-full"
+                      >
+                        {link.icon}
+                      </a>
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </div>
-          </div>
-          <div className="hidden flex-col mt-10 md:flex">
-            <h1 className="mb-3 text-2xl tracking-wider font-medium md:mb-4">
-              {newsletterHeading}
-            </h1>
+                <div className="flex flex-col items-start justify-start mt-10">
+                  <h2 className="mb-3 text-2xl tracking-wider font-medium md:mb-4">
+                    Tutti i link
+                  </h2>
+                  {columnLinks.map((link, index) => (
+                    <div
+                      key={index}
+                      className="py-2 block text-lg tracking-wider focus-visible:outline-none animation-linkFooter"
+                    >
+                      <Link
+                        href={link.url}
+                        className="flex items-center gap-3 focus-visible:outline-none "
+                      >
+                        {link.title}
+                      </Link>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="hidden flex-col mt-10 md:flex">
+                <h1 className="mb-3 text-2xl tracking-wider font-medium md:mb-4">
+                  La{" "}
+                  <span className="text-accentYellow underline">
+                    Newsletter
+                  </span>{" "}
+                  sarà presto disponibile!
+                </h1>
+              </div>
+              {/*
             <p className="mb-3 text-base tracking-wider md:mb-4">
               {newsletterDescription}
             </p>
@@ -166,27 +195,23 @@ export const Footer = (props: Footer2Props) => {
                 <Input placeholder={inputPlaceholder} />
                 <Button variant="default">{button.text}</Button>
               </div>
-              <div dangerouslySetInnerHTML={{ __html: termsAndConditions }} />
+            </div>
+          </div> */}
+            </div>
+            <div className="h-px w-full bg-black" />
+            <div className="flex justify-center items-center gap-4 my-6 text-sm md:justify-center md:pb-0 md:my-8 lg:flex-row lg:items-center lg:justify-between">
+              <div className="flex items-center justify-center gap-4 md:grid-flow-col md:justify-center">
+                <PrivacyPolicyLink />
+                <CookiePolicyLink />
+              </div>
+              <div className="flex justify-end">
+                <p className="">{footerText}</p>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="h-px w-full bg-black" />
-        <div className="flex justify-center items-center gap-4 my-6 text-sm md:justify-center md:pb-0 md:my-8 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex items-center justify-center gap-4 md:grid-flow-col md:justify-center">
-            {footerLinks.map((link, index) => (
-              <p key={index} className="underline ">
-                <a href={link.url} className="focus-visible:outline-none ">
-                  {link.title}
-                </a>
-              </p>
-            ))}
-          </div>
-          <div className="flex justify-end">
-            <p className="">{footerText}</p>
-          </div>
-        </div>
-      </div>
-    </footer>
+        </footer>
+      )}
+    </AnimatePresence>
   );
 };
 
@@ -214,30 +239,17 @@ export const Footer2Defaults: Footer2Props = {
   contact: {
     label: "Contatti:",
     phone: "1800 123 4567",
-    email: "info@relume.io",
+    email: "ssdathena@libero.it",
   },
   socialMediaLinks: [
     {
-      url: "#",
+      url: "https://www.facebook.com/profile.php?id=61552120251038",
       icon: <BiLogoFacebookCircle className="size-6 text-accentYellow" />,
     },
     {
-      url: "#",
+      url: "https://www.instagram.com/ssd.cam.athena/",
       icon: <BiLogoInstagram className="size-6 text-accentYellow" />,
     },
-    {
-      url: "#",
-      icon: <FaXTwitter className="size-6 p-0.5 text-accentYellow" />,
-    },
-    {
-      url: "#",
-      icon: <BiLogoLinkedinSquare className="size-6 text-accentYellow" />,
-    },
-    { url: "#", icon: <BiLogoYoutube className="size-6 text-accentYellow" /> },
   ],
-  footerText: "© 2024 Relume. All rights reserved.",
-  footerLinks: [
-    { title: "Privacy Policy", url: "#" },
-    { title: "Cookies Policy", url: "#" },
-  ],
+  footerText: "© 2024 SSDCamAthena. Tutti i diritti sono riservati.",
 };

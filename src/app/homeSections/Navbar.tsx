@@ -30,9 +30,5 @@ export const Navbar = (props: Navbar2Props) => {
     ...props,
   } as Props;
 
-  return (
-    <nav className="flex w-full text-lg items-center border-b border-border-primary bg-bg text-text lg:min-h-18 lg:px-[5%] top-0 fixed z-50">
-      <NavbarClient logo={logo} navLinks={navLinks} button={button} />
-    </nav>
-  );
+  return <NavbarClient logo={logo} navLinks={navLinks} button={button} />;
 };

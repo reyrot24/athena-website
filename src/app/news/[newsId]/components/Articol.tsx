@@ -32,8 +32,8 @@ const Articol = (props: newstypes) => {
   return (
     <section>
       <div className="container">
-        <div className="  flex w-full md:justify-between gap-8 md:gap-32 items-start flex-col md:flex-row ">
-          <div className="mb-8 md:mb-0 flex flex-col items-start justify-start">
+        <div className="flex w-full gap-8  items-start flex-col md:flex-row ">
+          <div className="w-full mb-8 md:mb-0 flex flex-col items-start justify-start">
             <div className="mb-4 md:mb-10 flex items-center justify-start">
               <RxChevronLeft className="flex items-center text-accentYellow" />
               <h3 className="cursor-pointer">
@@ -52,9 +52,9 @@ const Articol = (props: newstypes) => {
               Pubblicato il <span className="text-accentYellow">{date}</span>
             </p>
           </div>
-          <div className="w-full h-96 ">
+          <div className="w-full h-96 flex justify-center">
             <Image
-              className="w-full h-full object-contain object-right"
+              className="w-full h-full  object-contain"
               src={urlFor(img).toString()}
               alt="Immagine"
               width={0}

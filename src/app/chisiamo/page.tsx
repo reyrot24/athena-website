@@ -10,9 +10,9 @@ export default async function ChiSiamo() {
   });
 
   return (
-    <section className="px-[5%] py-12 md:py-10 mt-[80px] text-text bg-bg">
-      <h1 className="flex justify-center items-center mb-14 text-4xl font-bold  md:mb-20 md:text-6xl">
-        Chi siamo
+    <section className="px-[5%] py-12 md:py-10 mt-[80px] text-text bg-bg ">
+      <h1 className="flex text-accentYellow justify-center items-center mb-14 text-4xl font-bold  md:mb-20 md:text-6xl">
+        CHI SIAMO
       </h1>
 
       <SectionStoria heading="La nostra storia" />

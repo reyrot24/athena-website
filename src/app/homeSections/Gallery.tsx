@@ -1,10 +1,13 @@
+"use client";
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Links } from "@/constants/links";
 import Image from "next/image";
+import Zoom from "react-medium-image-zoom";
+import "../styles.css";
+import { motion } from "framer-motion";
 
 type ImageProps = {
-  url?: string;
   src: string;
   alt?: string;
 };
@@ -30,19 +33,23 @@ const Gallery = (props: Gallery3Props) => {
         </h1>
         <div className="grid grid-cols-2 items-start justify-center gap-6 md:grid-cols-4 md:gap-8">
           {images.map((image, index) => (
-            <a
+            <motion.div
               key={index}
-              href={image.url}
-              className="ring-offset-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-border-primary focus-visible:ring-offset-2"
+              initial={{ opacity: 0, x: 100 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.4 }}
+              viewport={{ once: true, amount: 0.2 }}
             >
-              <Image
-                src={image.src}
-                alt={image.alt!}
-                width={100}
-                height={100}
-                className="size-full object-cover rounded-lg border border-accentYellow"
-              />
-            </a>
+              <Zoom key={index}>
+                <Image
+                  src={image.src}
+                  alt={image.alt!}
+                  width={500}
+                  height={500}
+                  className="object-contain rounded-lg border border-accentYellow "
+                />
+              </Zoom>
+            </motion.div>
           ))}
         </div>
         <div className="flex justify-center items-center mt-20">
@@ -61,22 +68,18 @@ export const Gallery3Defaults: Gallery3Props = {
   heading: "Galleria",
   images: [
     {
-      url: "#",
       src: "/Athena_Palestra_1.jpg",
       alt: "Athena palestra 1",
     },
     {
-      url: "#",
       src: "/Athena_Palestra_2.jpg",
       alt: "Athena palestra 2",
     },
     {
-      url: "#",
       src: "/Athena_Palestra_3.jpg",
       alt: "Athena palestra 3",
     },
     {
-      url: "#",
       src: "/Athena_Palestra_4.jpg",
       alt: "Placeholder image 4",
     },
