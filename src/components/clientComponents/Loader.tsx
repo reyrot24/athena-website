@@ -33,9 +33,10 @@ const Loader = ({ where }: props) => {
             <Image
               src="/Intro_logo.gif"
               alt="Intro_logo"
+              layout={"responsive"}
               width={0}
               height={0}
-              unoptimized
+              unoptimized={true}
               className="w-1/2 h-1/2 object-contain"
             />
           </motion.div>

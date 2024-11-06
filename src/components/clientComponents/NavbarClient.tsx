@@ -56,81 +56,82 @@ const NavbarClient = (props: NavbarClientProps) => {
       setIsLoading(false);
     }, 4000);
   }, []);
+
   return (
     <AnimatePresence>
-      {isLoading ? (
+      {/* {isLoading ? (
         <motion.div exit={{ opacity: 0, z: 100 }}>
           <Loader where="" />
         </motion.div>
-      ) : (
-        <nav className="flex w-full text-lg items-center border-b border-border-primary bg-bg text-text lg:min-h-18 lg:px-[5%] top-0 fixed z-50">
-          <div className="mx-auto size-full lg:flex lg:items-center lg:justify-between lg:gap-4">
-            <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
-              <Link href={logo.url} onClick={() => setIsMobileMenuOpen(false)}>
-                <motion.div {...framerList}>
-                  <Image src={logo.src} alt={logo.alt} width={80} height={80} />
-                </motion.div>
-              </Link>
+      ) : ( */}
+      <nav className="flex w-full text-lg items-center border-b border-border-primary bg-bg text-text lg:min-h-18 lg:px-[5%] top-0 fixed z-50">
+        <div className="mx-auto size-full lg:flex lg:items-center lg:justify-between lg:gap-4">
+          <div className="flex min-h-16 items-center justify-between px-[5%] md:min-h-18 lg:min-h-full lg:px-0">
+            <Link href={logo.url} onClick={() => setIsMobileMenuOpen(false)}>
+              <motion.div {...framerList}>
+                <Image src={logo.src} alt={logo.alt} width={80} height={80} />
+              </motion.div>
+            </Link>
 
-              <div className="flex items-center gap-4 lg:hidden">
-                <button
-                  className="-mr-2 flex size-12 flex-col items-center justify-center"
+            <div className="flex items-center gap-4 lg:hidden">
+              <button
+                className="-mr-2 flex size-12 flex-col items-center justify-center"
+                onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              >
+                <motion.span
+                  className="my-[3px] h-0.5 w-6 bg-text"
+                  animate={
+                    isMobileMenuOpen ? ["open", "rotatePhase"] : "closed"
+                  }
+                  variants={topLineVariants}
+                />
+                <motion.span
+                  className="my-[3px] h-0.5 w-6 bg-text"
+                  animate={isMobileMenuOpen ? "open" : "closed"}
+                  variants={middleLineVariants}
+                />
+                <motion.span
+                  className="my-[3px] h-0.5 w-6 bg-text"
+                  animate={
+                    isMobileMenuOpen ? ["open", "rotatePhase"] : "closed"
+                  }
+                  variants={bottomLineVariants}
+                />
+              </button>
+            </div>
+          </div>
+          <motion.div
+            variants={{
+              open: {
+                height: "var(--height-open, 100dvh)",
+              },
+              close: {
+                height: "var(--height-closed, 0)",
+              },
+            }}
+            animate={isMobileMenuOpen ? "open" : "close"}
+            initial="close"
+            exit="close"
+            transition={{ duration: 0.4 }}
+            className="overflow-hidden gap-8 px-[5%] text-center lg:flex lg:items-center lg:justify-end lg:px-0 lg:[--height-closed:auto] lg:[--height-open:auto]"
+          >
+            {navLinks.map((navLink, index) => (
+              <motion.div
+                key={index}
+                {...framerList}
+                className="block py-3 text-2xl focus-visible:outline-none lg:py-2 lg:text-xl tracking-wide "
+              >
+                <Link
+                  href={navLink.url}
+                  className="md:animation-link"
                   onClick={() => setIsMobileMenuOpen((prev) => !prev)}
                 >
-                  <motion.span
-                    className="my-[3px] h-0.5 w-6 bg-text"
-                    animate={
-                      isMobileMenuOpen ? ["open", "rotatePhase"] : "closed"
-                    }
-                    variants={topLineVariants}
-                  />
-                  <motion.span
-                    className="my-[3px] h-0.5 w-6 bg-text"
-                    animate={isMobileMenuOpen ? "open" : "closed"}
-                    variants={middleLineVariants}
-                  />
-                  <motion.span
-                    className="my-[3px] h-0.5 w-6 bg-text"
-                    animate={
-                      isMobileMenuOpen ? ["open", "rotatePhase"] : "closed"
-                    }
-                    variants={bottomLineVariants}
-                  />
-                </button>
-              </div>
-            </div>
-            <motion.div
-              variants={{
-                open: {
-                  height: "var(--height-open, 100dvh)",
-                },
-                close: {
-                  height: "var(--height-closed, 0)",
-                },
-              }}
-              animate={isMobileMenuOpen ? "open" : "close"}
-              initial="close"
-              exit="close"
-              transition={{ duration: 0.4 }}
-              className="overflow-hidden gap-8 px-[5%] text-center lg:flex lg:items-center lg:justify-end lg:px-0 lg:[--height-closed:auto] lg:[--height-open:auto]"
-            >
-              {navLinks.map((navLink, index) => (
-                <motion.div
-                  key={index}
-                  {...framerList}
-                  className="block py-3 text-2xl focus-visible:outline-none lg:py-2 lg:text-xl tracking-wide "
-                >
-                  <Link
-                    href={navLink.url}
-                    className="md:animation-link"
-                    onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-                  >
-                    {navLink.title}
-                  </Link>
-                </motion.div>
-              ))}
+                  {navLink.title}
+                </Link>
+              </motion.div>
+            ))}
 
-              {/* <div className="justify-self-end block md:hidden">
+            {/* <div className="justify-self-end block md:hidden">
                 <Link
                   href="/#contact"
                   onClick={() => setIsMobileMenuOpen((prev) => !prev)}
@@ -147,10 +148,10 @@ const NavbarClient = (props: NavbarClientProps) => {
                   </Button>
                 </Link>
               </div> */}
-            </motion.div>
-          </div>
-        </nav>
-      )}
+          </motion.div>
+        </div>
+      </nav>
+      {/* )} */}
     </AnimatePresence>
   );
 };
