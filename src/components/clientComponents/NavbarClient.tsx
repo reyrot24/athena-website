@@ -1,12 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 /* import { Button } from "../ui/Button"; */
 import Link from "next/link";
 import Image from "next/image";
 /* import { useTheme } from "next-themes"; */
 import { AnimatePresence, motion } from "framer-motion";
-import Loader from "./Loader";
 
 type ImageProps = {
   url: string;
@@ -48,7 +47,7 @@ const NavbarClient = (props: NavbarClientProps) => {
   } as Props;
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  /*   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     // Simulate an API call
@@ -56,7 +55,7 @@ const NavbarClient = (props: NavbarClientProps) => {
       setIsLoading(false);
     }, 4000);
   }, []);
-
+ */
   return (
     <AnimatePresence>
       {/* {isLoading ? (
