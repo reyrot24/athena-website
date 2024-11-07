@@ -14,48 +14,27 @@ const loadingContainerVariants = {
   },
 };
 
-type props = {
-  where: string;
-};
-
-const Loader = ({ where }: props) => {
-  switch (where) {
-    case "center":
-      return (
-        <AnimatePresence>
-          <motion.div
-            className="w-screen h-screen bg-black flex justify-center items-center"
-            variants={loadingContainerVariants}
-            initial="start"
-            animate="end"
-            exit="exit"
-          >
-            <Image
-              src="/Intro_logo.gif"
-              alt="Intro_logo"
-              layout={"responsive"}
-              width={0}
-              height={0}
-              unoptimized={true}
-              className="w-1/2 h-1/2 object-contain"
-            />
-          </motion.div>
-        </AnimatePresence>
-      );
-
-    default:
-      return (
-        <AnimatePresence>
-          <motion.div
-            className="w-screen h-screen absolute "
-            variants={loadingContainerVariants}
-            initial="start"
-            animate="end"
-            exit="exit"
-          />
-        </AnimatePresence>
-      );
-  }
+const Loader = () => {
+  return (
+    <AnimatePresence>
+      <motion.div
+        className="h-screen bg-black flex justify-center items-center"
+        variants={loadingContainerVariants}
+        initial="start"
+        animate="end"
+        exit="exit"
+      >
+        <Image
+          src="/Intro_logo.gif"
+          alt="Intro_logo"
+          width={0}
+          height={0}
+          unoptimized={true}
+          className="w-1/2 object-contain"
+        />
+      </motion.div>
+    </AnimatePresence>
+  );
 };
 
 export default Loader;

@@ -7,22 +7,35 @@ import { Corsi } from "./homeSections/Corsi";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Loader from "@/components/clientComponents/Loader";
+import { Navbar } from "./homeSections/Navbar";
+import { images } from "@/constants/images";
+import { Links } from "@/constants/links";
+import { Footer } from "./homeSections/Footer";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate an API call
-    setTimeout(() => {
+    // Controlla se il loader è già stato mostrato in questa sessione
+    const hasVisitedSession = sessionStorage.getItem("hasVisitedSession");
+
+    if (hasVisitedSession) {
+      // Se l'utente ha già visitato la home in questa sessione, non mostrare l'animazione
       setIsLoading(false);
-    }, 4000);
+    } else {
+      // Se è la prima visita in questa sessione, mostra l'animazione
+      setTimeout(() => {
+        setIsLoading(false);
+        sessionStorage.setItem("hasVisitedSession", "true");
+      }, 4000);
+    }
   }, []);
 
   return (
     <AnimatePresence>
       {isLoading ? (
         <motion.div exit={{ opacity: 0, z: 100 }}>
-          <Loader where="center" />
+          <Loader />
         </motion.div>
       ) : (
         <motion.main
@@ -37,10 +50,17 @@ export default function Home() {
           }}
           transition={{ duration: 2 }}
         >
+          <Navbar
+            animation={true}
+            logo={images.logo}
+            button={buttons[1]}
+            navLinks={Links}
+          />
           <Header button={buttons[2]} />
           <Corsi />
           <Gallery />
           <Contact heading="Vieni a trovarci" />
+          <Footer button={buttons[4]} logo={images.logo} columnLinks={Links} />
         </motion.main>
       )}
     </AnimatePresence>

@@ -20,15 +20,23 @@ type Props = {
   logo: ImageProps;
   navLinks: NavLink[];
   button: ButtonProps;
+  animation: boolean;
 };
 
 export type Navbar2Props = React.ComponentPropsWithoutRef<"section"> &
   Partial<Props>;
 
 export const Navbar = (props: Navbar2Props) => {
-  const { logo, navLinks, button } = {
+  const { logo, navLinks, button, animation } = {
     ...props,
   } as Props;
 
-  return <NavbarClient logo={logo} navLinks={navLinks} button={button} />;
+  return (
+    <NavbarClient
+      animation={animation}
+      logo={logo}
+      navLinks={navLinks}
+      button={button}
+    />
+  );
 };

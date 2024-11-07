@@ -1,11 +1,6 @@
 import type { Metadata } from "next";
 import { Archivo } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "./homeSections/Navbar";
-import { Footer } from "./homeSections/Footer";
-import { images } from "@/constants/images";
-import { buttons } from "@/constants/buttons";
-import { Links } from "@/constants/links";
 import { ThemeProvider } from "@/components/dark-mode/theme-provider";
 import { ModeToggle } from "@/components/dark-mode/toggle";
 import {
@@ -39,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} text-black bg-bg2 no-scrollbar`}>
+      <body className={`${inter.className} text-black bg-black no-scrollbar`}>
         <IubendaProvider bannerConfig={iubendaBannerConfig}>
           <ThemeProvider
             attribute="class"
@@ -47,14 +42,8 @@ export default function RootLayout({
             enableSystem
             disableTransitionOnChange
           >
-            <Navbar logo={images.logo} button={buttons[1]} navLinks={Links} />
             {children}
             {<ModeToggle />}
-            <Footer
-              button={buttons[4]}
-              logo={images.logo}
-              columnLinks={Links}
-            />
           </ThemeProvider>
         </IubendaProvider>
       </body>
