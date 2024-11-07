@@ -26,18 +26,18 @@ const RelatedPosts = async (props: Props) => {
       <div className="grid grid-cols-2 gap-x-6 gap-y-8 py-2 ">
         {relatedArticols.map((articol, i) => (
           <div key={i} className="flex flex-col md:flex-row md:gap-8">
-            <div className="h-full">
-              <Link href={`/news/${articol.slug}`}>
+            <Link href={`/news/${articol.slug}`}>
+              <div className="h-full">
                 <Image
                   src={urlFor(articol.img).toString()}
                   alt={articol.titolo}
-                  className="md:w-[300px] object-cover border-black border-[1px]"
+                  className="border hover:border-accentYellow w-full md:w-[300px] object-cover"
                   width={0}
                   height={0}
                   sizes="100vw"
                 />
-              </Link>
-            </div>
+              </div>
+            </Link>
             <div className="h-full flex justify-between items-start flex-col  mt-4 md:mt-0">
               <h3 className="mb-3 text-xl font-bold md:text-2xl">
                 {articol.titolo}
