@@ -25,7 +25,7 @@ export const Header = (props: Header5Props) => {
       <Carousell />
       <div className="absolute ">
         <div className="mb-5 text-white heading">
-          Change your <h1 className="sign">life</h1>
+          We are <h1 className="sign">athena</h1>
         </div>
         {/* <div>
           <Button variant="default" className="btn-pad">

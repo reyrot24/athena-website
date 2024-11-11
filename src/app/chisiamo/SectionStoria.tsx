@@ -38,7 +38,7 @@ const SectionStoria = (props: Blog41Props) => {
           team di giovani professionisti
         </span>{" "}
         che, dopo aver acquisito competenze e esperienze significative fuori
-        regione, ha scelto di tornare nel nostro paese per contribuire alla{" "}
+        regione, ha scelto di tornare nel proprio paese per contribuire alla{" "}
         <span className="text-accentYellow">crescita dello sport</span> e{" "}
         <span className="text-accentYellow">dell’attività fisica</span>. Il
         nostro <span className="text-accentYellow">obiettivo</span> è quello di

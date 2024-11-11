@@ -11,6 +11,7 @@ import { Navbar } from "./homeSections/Navbar";
 import { images } from "@/constants/images";
 import { Links } from "@/constants/links";
 import { Footer } from "./homeSections/Footer";
+import Head from "next/head";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -32,37 +33,46 @@ export default function Home() {
   }, []);
 
   return (
-    <AnimatePresence>
-      {isLoading ? (
-        <motion.div exit={{ opacity: 0, z: 100 }}>
-          <Loader />
-        </motion.div>
-      ) : (
-        <motion.main
-          /*    initial={{
+    <section>
+      <Head>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <AnimatePresence>
+        {isLoading ? (
+          <motion.div exit={{ opacity: 0, z: 100 }}>
+            <Loader />
+          </motion.div>
+        ) : (
+          <motion.main
+            /*    initial={{
             opacity: 0,
           }} */
-          animate={{
-            opacity: 1,
-          }}
-          exit={{
-            opacity: 0,
-          }}
-          transition={{ duration: 2 }}
-        >
-          <Navbar
-            animation={true}
-            logo={images.logo}
-            button={buttons[1]}
-            navLinks={Links}
-          />
-          <Header button={buttons[2]} />
-          <Corsi />
-          <Gallery />
-          <Contact heading="Vieni a trovarci" />
-          <Footer button={buttons[4]} logo={images.logo} columnLinks={Links} />
-        </motion.main>
-      )}
-    </AnimatePresence>
+            animate={{
+              opacity: 1,
+            }}
+            exit={{
+              opacity: 0,
+            }}
+            transition={{ duration: 2 }}
+          >
+            <Navbar
+              animation={true}
+              logo={images.logo}
+              button={buttons[1]}
+              navLinks={Links}
+            />
+            <Header button={buttons[2]} />
+            <Corsi />
+            <Gallery />
+            <Contact heading="Vieni a trovarci" />
+            <Footer
+              button={buttons[4]}
+              logo={images.logo}
+              columnLinks={Links}
+            />
+          </motion.main>
+        )}
+      </AnimatePresence>
+    </section>
   );
 }

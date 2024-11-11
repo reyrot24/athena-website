@@ -104,7 +104,7 @@ export const Footer = (props: Footer2Props) => {
                   <p className="mb-1 text-2xl tracking-wider font-medium ">
                     {contact.label}
                   </p>
-                  <p className="flex flex-col text-lg tracking-wide underline decoration-black underline-offset-1 md:mb-6">
+                  <p className="flex flex-col text-lg tracking-wide underline decoration-accentYellow underline-offset-1 md:mb-6">
                     <a
                       href={`tel:${contact.phone}`}
                       className="focus-visible:outline-none "
@@ -172,8 +172,8 @@ export const Footer = (props: Footer2Props) => {
           </div> */}
         </div>
         <div className="h-px w-full bg-black" />
-        <div className="flex justify-center items-center gap-4 my-6 text-sm md:justify-center md:pb-0 md:my-8 lg:flex-row lg:items-center lg:justify-between">
-          <div className="flex items-center justify-center gap-4 md:grid-flow-col md:justify-center">
+        <div className="flex items-center justify-between flex-col gap-4 my-6 text-sm md:pb-0 md:my-8 lg:flex-row ">
+          <div className="flex items-center justify-center gap-4  md:flex-row md:justify-center">
             <PrivacyPolicyLink />
             <CookiePolicyLink />
           </div>
@@ -209,7 +209,7 @@ export const Footer2Defaults: Footer2Props = {
   },
   contact: {
     label: "Contatti:",
-    phone: "1800 123 4567",
+    phone: "3920595980",
     email: "ssdathena@libero.it",
   },
   socialMediaLinks: [
