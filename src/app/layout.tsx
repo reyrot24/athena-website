@@ -7,6 +7,8 @@ import {
   IubendaProvider,
   IubendaCookieSolutionBannerConfigInterface,
 } from "@mep-agency/next-iubenda";
+import Head from "next/head";
+import Link from "next/link";
 
 const inter = Archivo({
   weight: ["400", "500", "600"],
@@ -16,7 +18,7 @@ const inter = Archivo({
 export const metadata: Metadata = {
   title: "SSD CAM Athena - Montescaglioso",
   description:
-    "SSD CAM Athena | WE ARE ATHENA. Centro Attività Motoria: Sala pesi 🏋‍♀️ - Fitness posturale 🧎‍♀️ - Kick boxing 🥊 - Functional 🤸‍♀️ - Calisthenics 🚶 - Total body 🤸🏻‍♀️ - Acrobatica 🤸🏻‍♀️ - Danza 💃. Montescaglioso, Matera.",
+    "SSD CAM Athena | WE ARE ATHENA. Centro Attività Motoria a Montescaglioso (MT). Sala pesi - Fitness posturale - Kick boxing - Functional - Calisthenics - Total body - Acrobatica - Danza.",
   icons: {
     icon: "/favicon.ico",
   },
@@ -38,6 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Link rel="icon" href="/favicon.ico" />
       <body className={`${inter.className} text-black bg-black no-scrollbar`}>
         <IubendaProvider bannerConfig={iubendaBannerConfig}>
           <ThemeProvider
