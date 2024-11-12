@@ -7,7 +7,6 @@ import {
   IubendaProvider,
   IubendaCookieSolutionBannerConfigInterface,
 } from "@mep-agency/next-iubenda";
-import Head from "next/head";
 import Link from "next/link";
 
 const inter = Archivo({
