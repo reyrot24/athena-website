@@ -23,27 +23,25 @@ const RelatedPosts = async (props: Props) => {
       <h1 className="mb-8 text-2xl font-bold text-text-alternative md:mb-12 md:text-4xl">
         Altre news
       </h1>
-      <div className="grid grid-cols-2 gap-x-6 gap-y-8 py-2 ">
+      <div className="grid md:grid-cols-2 gap-x-24 gap-y-8 py-2 ">
         {relatedArticols.map((articol, i) => (
-          <div key={i} className="flex flex-col md:flex-row md:gap-8">
-            <Link href={`/news/${articol.slug}`}>
-              <div className="h-full">
-                <Image
-                  src={urlFor(articol.img).toString()}
-                  alt={articol.titolo}
-                  className="border hover:border-accentYellow w-full md:w-[300px] object-cover"
-                  width={0}
-                  height={0}
-                  sizes="100vw"
-                />
-              </div>
+          <div key={i} className="flex flex-col md:gap-8">
+            <Link href={`/news/${articol.slug}`} className="mb-6 w-full">
+              <Image
+                src={urlFor(articol.img).toString()}
+                alt={articol.titolo}
+                className="border hover:border-accentYellow w-full h-full object-cover"
+                width={0}
+                height={0}
+                sizes="100vw"
+              />
             </Link>
             <div className="h-full flex justify-between items-start flex-col  mt-4 md:mt-0">
               <h3 className="mb-3 text-xl font-bold md:text-2xl">
                 {articol.titolo}
               </h3>
               <div className="pr-8">
-                <p className="text-sm ">{articol.descrizione}</p>
+                <p className="text-lg">{articol.descrizione}</p>
               </div>
               <Link href={`/news/${articol.slug}`}>
                 <div className="mt-6 flex justify-end items-end gap-2 md:mt-8 text-accentYellow">

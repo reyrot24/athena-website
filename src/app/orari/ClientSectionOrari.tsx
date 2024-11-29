@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { corsi } from "@/constants/corsi";
 import { motion } from "framer-motion";
 import { oraritypes } from "@/types/orari";
 
@@ -15,17 +14,17 @@ const ClientSectionOrari = ({ response }: Props) => {
   return (
     <div className="container mb-20">
       <div className="pb-14 gap-4 md:gap-2 text-md grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 ">
-        {corsi.map((corso, i) => (
+        {response.map((corso, i) => (
           <h1
             key={i}
             className={`${
-              corso === corsoState
+              corso.corso === corsoState
                 ? "border-accentYellow"
                 : "border-transparent"
             } text-base md:text-xl flex justify-center items-center border-[1px] hover:border-accentYellow px-4 py-2 w-full  text-center  cursor-pointer`}
-            onClick={() => setCorsoState(corso)}
+            onClick={() => setCorsoState(corso.corso)}
           >
-            {corso}
+            {corso.corso}
           </h1>
         ))}
       </div>

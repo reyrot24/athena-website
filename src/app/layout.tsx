@@ -39,7 +39,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <Link rel="icon" href="/favicon.ico" />
+      <link
+        rel="apple-touch-icon"
+        href="/favicon.ico"
+        type="image/ico"
+        sizes="16x16"
+      />
       <body className={`${inter.className} text-black bg-black no-scrollbar`}>
         <IubendaProvider bannerConfig={iubendaBannerConfig}>
           <ThemeProvider

@@ -6,7 +6,7 @@ export const QueryChiSiamo =
   '*[_type == "chisiamo"] | order(id asc){nome, descrizione, lavoro, foto}';
 
 export const QueryCorsiEOrari =
-  '*[_type == "corsi"]{corso, lunedi, martedi, mercoledi, giovedi, venerdi, sabato, domenica}';
+  '*[_type == "corsi"] | order(corso asc){corso, lunedi, martedi, mercoledi, giovedi, venerdi, sabato, domenica}';
 
 export const QueryGalleria =
   '*[_type == "galleria"] | order(nomeImg asc) {nomeImg, image}';
@@ -18,7 +18,7 @@ export const QueryIndividualArticol =
   '*[_type == "news" && slug.current == $slug][0]{titolo, img, "slug": slug.current, data, descrizione ,contenuto}';
 
 export const QueryRelatedArticols =
-  '*[_type == "news" && slug.current != $slug] | order(data desc){titolo, img, "slug": slug.current, data, descrizione ,contenuto}[0..3]';
+  '*[_type == "news" && slug.current != $slug] | order(data desc){titolo, img, "slug": slug.current, data, descrizione ,contenuto}[0..1]';
 
 export async function sanityFetch({
   query,

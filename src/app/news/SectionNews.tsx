@@ -49,6 +49,9 @@ export const SectionNews = async (props: Layout236Props) => {
                 </h3>
                 <div className="hidden md:block">{articol.descrizione}</div>
               </div>
+              <div className="hidden md:block">
+                {new Date(articol.data).toLocaleDateString()}
+              </div>
               <div className=" flex justify-start items-center gap-2 mt-4">
                 <Button
                   variant="link"
