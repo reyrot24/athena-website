@@ -7,7 +7,6 @@ import { PortableText, PortableTextComponents } from "@portabletext/react";
 import { newstypes } from "@/types/news";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
-import urlBuilder from "@sanity/image-url";
 
 const Articol = (props: newstypes) => {
   const { titolo, data, img, contenuto, slug } = props;
@@ -29,7 +28,7 @@ const Articol = (props: newstypes) => {
       },
     },
     types: {
-      image: ({ value, isInline }) => (
+      image: ({ value }) => (
         <Image
           className="w-full h-full object-contain"
           src={urlFor(value).toString()}
