@@ -24,7 +24,7 @@ export const SectionNews = async (props: Layout236Props) => {
 
   return (
     <section>
-      <h1 className="flex justify-center items-center mb-14 text-4xl font-bold text-text-alternative md:mb-20 md:text-6xl">
+      <h1 className="text-accentYellow flex justify-center items-center mb-14 text-4xl font-bold text-text-alternative md:mb-20 md:text-6xl">
         {heading}
       </h1>
       {/*     <Search news={news} /> */}

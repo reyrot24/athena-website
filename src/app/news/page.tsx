@@ -8,7 +8,7 @@ import { SectionNews } from "./SectionNews";
 const News = () => {
   return (
     <div className="px-[5%] py-12 md:py-10 mt-[80px] bg-bg text-text">
-      <SectionNews heading="News" />
+      <SectionNews heading="NEWS" />
     </div>
   );
 };

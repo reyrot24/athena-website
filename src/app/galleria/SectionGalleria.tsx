@@ -19,8 +19,8 @@ const SectionGallery = (props: Gallery10Props) => {
 
   return (
     <div className="container mb-20">
-      <h1 className="flex justify-center items-center mb-14 text-4xl font-bold text-text-alternative md:mb-20 md:text-6xl">
-        {heading}
+      <h1 className="text-accentYellow flex justify-center items-center mb-14 text-4xl font-bold text-text-alternative md:mb-20 md:text-6xl">
+        GALLERIA
       </h1>
       <div className="grid gap-16 grid-cols-1 md:grid-cols-12">
         {response.map((img, i) => (

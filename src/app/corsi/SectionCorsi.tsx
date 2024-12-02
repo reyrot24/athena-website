@@ -14,7 +14,6 @@ type Corsi = {
 };
 
 type Props = {
-  heading: string;
   corsi: Corsi[];
 };
 
@@ -27,7 +26,7 @@ const item = {
 };
 
 const SectionCorsi = (props: Props) => {
-  const { /* heading */ corsi } = {
+  const { corsi } = {
     ...props,
   } as Props;
   return (

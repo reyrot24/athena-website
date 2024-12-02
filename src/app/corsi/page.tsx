@@ -18,7 +18,7 @@ const Corsi = () => {
         navLinks={Links}
       />
       <section className="py-12 md:py-10 mt-[80px] bg-bg text-text">
-        <SectionCorsi corsi={corsiImgEDescrizioni} heading="I nostri corsi" />
+        <SectionCorsi corsi={corsiImgEDescrizioni} />
       </section>
       <Footer button={buttons[4]} logo={images.logo} columnLinks={Links} />
     </>

@@ -22,7 +22,7 @@ const Galleria = async () => {
         navLinks={Links}
       />
       <section className="px-[5%] py-12 md:py-10 mt-[80px] bg-bg text-text">
-        <SectionGalleria response={galleria} heading="Galleria" />
+        <SectionGalleria response={galleria} />
       </section>
       <Footer button={buttons[4]} logo={images.logo} columnLinks={Links} />
     </>
