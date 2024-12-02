@@ -5,7 +5,6 @@ import Zoom from "react-medium-image-zoom";
 import "../styles.css";
 
 type Props = {
-  heading: string;
   response: galleriatypes[];
 };
 
@@ -13,7 +12,7 @@ export type Gallery10Props = React.ComponentPropsWithoutRef<"section"> &
   Partial<Props>;
 
 const SectionGallery = (props: Gallery10Props) => {
-  const { heading, response } = {
+  const { response } = {
     ...props,
   } as Props;
 
