@@ -30,13 +30,13 @@ const RelatedPosts = async (props: Props) => {
               <Image
                 src={urlFor(articol.img).toString()}
                 alt={articol.titolo}
-                className="border hover:border-accentYellow w-full h-full object-cover"
+                className="border hover:border-accentYellow w-full h-[28rem] object-cover"
                 width={0}
                 height={0}
                 sizes="100vw"
               />
             </Link>
-            <div className="h-full flex justify-between items-start flex-col  mt-4 md:mt-0">
+            <div className="flex justify-center items-start flex-col mt-4 md:mt-0">
               <h3 className="mb-3 text-xl font-bold md:text-2xl">
                 {articol.titolo}
               </h3>
