@@ -7,6 +7,8 @@ import { PortableText, PortableTextComponents } from "@portabletext/react";
 import { newstypes } from "@/types/news";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
+import Zoom from "react-medium-image-zoom";
+import "../../../styles.css";
 
 const Articol = (props: newstypes) => {
   const { titolo, data, img, contenuto, slug } = props;
@@ -64,15 +66,17 @@ const Articol = (props: newstypes) => {
               Pubblicato il <span className="text-accentYellow">{date}</span>
             </p>
           </div>
-          <div className="w-full h-96 flex justify-center">
-            <Image
-              className="w-full h-full  object-contain"
-              src={urlFor(img).toString()}
-              alt="Immagine"
-              width={0}
-              height={0}
-              sizes="100vw"
-            />
+          <div className="w-full h-[500px] ">
+            <Zoom>
+              <Image
+                className="w-full h-[500px]  object-contain"
+                src={urlFor(img).toString()}
+                alt="Immagine"
+                width={0}
+                height={500}
+                sizes="100vh"
+              />
+            </Zoom>
           </div>
         </div>
         <div className="mt-24 text-xl text-justify ">

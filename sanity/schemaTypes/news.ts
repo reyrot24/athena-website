@@ -24,7 +24,8 @@ export default {
       options: {
         source: 'titolo',
         maxLength: 200, // will be ignored if slugify is set
-        slugify: (input: string) => input.toLowerCase().replace(/\s+/g, '-').slice(0, 200),
+        slugify: (input: string) =>
+          input.toLowerCase().replace(/\s+/g, '-').replace(/\,/g, '').slice(0, 50),
       },
     },
     {
