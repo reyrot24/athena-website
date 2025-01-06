@@ -33,7 +33,7 @@ export default {
       title: 'Data pubblicazione',
       type: 'date',
       options: {
-        dateFormat: 'DD/MM/YYYY',
+        dateFormat: 'DD-MM-YYYY',
         calendarTodayLabel: 'Today',
       },
     },
