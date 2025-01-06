@@ -29,7 +29,9 @@ export const SectionNews = async (props: Layout236Props) => {
       {/*     <Search news={news} /> */}
       <div className="container grid grid-cols-1 sm:grid-cols-2 items-start gap-x-4 gap-y-12 md:grid-cols-3 md:gap-x-8 md:gap-y-16 lg:gap-x-12">
         {news.map((articol) => {
-          const date = new Date(articol.data).toLocaleDateString();
+          const date = new Date(articol.data).toLocaleString("en-GB", {
+            dateStyle: "short",
+          });
           return (
             <div key={articol.slug} className="h-full flex justify-center">
               <Link
