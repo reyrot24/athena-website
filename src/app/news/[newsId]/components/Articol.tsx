@@ -9,9 +9,10 @@ import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import Zoom from "react-medium-image-zoom";
 import "../../../styles.css";
+import { BiSolidFilePdf } from "react-icons/bi";
 
 const Articol = (props: newstypes) => {
-  const { titolo, data, img, contenuto, slug } = props;
+  const { titolo, data, img, contenuto, slug, pdf } = props;
   const date = new Date(data).toLocaleDateString();
 
   const components: PortableTextComponents = {
@@ -66,10 +67,10 @@ const Articol = (props: newstypes) => {
               Pubblicato il <span className="text-accentYellow">{date}</span>
             </p>
           </div>
-          <div className="w-full h-[500px] ">
+          <div className="w-full">
             <Zoom>
               <Image
-                className="w-full h-[500px]  object-contain"
+                className="w-full h-[500px] object-contain"
                 src={urlFor(img).toString()}
                 alt="Immagine"
                 width={0}
@@ -82,6 +83,20 @@ const Articol = (props: newstypes) => {
         <div className="mt-24 text-xl text-justify ">
           <PortableText value={contenuto} components={components} />
         </div>
+        {pdf !== null ? (
+          <div className="flex items-center mt-8">
+            <a
+              href={`/api/${pdf}`}
+              target="_blank"
+              className="flex flex-col items-center"
+            >
+              <BiSolidFilePdf size="3rem" className="text-accentYellow" />
+              Apri PDF
+            </a>
+          </div>
+        ) : (
+          ""
+        )}
 
         <div className="py-12 md:mt-32">
           <Separator />

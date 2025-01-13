@@ -18,6 +18,14 @@ export default {
       },
     },
     {
+      name: 'pdf',
+      title: 'PDF',
+      type: 'file',
+      options: {
+        accept: 'application/pdf',
+      },
+    },
+    {
       name: 'slug',
       title: 'Slug',
       type: 'slug',

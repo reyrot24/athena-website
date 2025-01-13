@@ -35,9 +35,12 @@ type Contact = {
   email: string;
 };
 
-type FooterLink = {
-  title: string;
-  url: string;
+type FooterText = {
+  primaRiga: string;
+  secondaRiga: string;
+  terzaRiga: string;
+  quartaRiga: string;
+  quintaRiga: string;
 };
 
 type ButtonProps = {
@@ -53,8 +56,7 @@ type Props = {
   termsAndConditions: string;
   columnLinks: Links[];
   socialMediaLinks: SocialMediaLinks[];
-  footerText?: string;
-  footerLinks: FooterLink[];
+  footerText: FooterText;
   address: Address;
   contact: Contact;
 };
@@ -177,10 +179,27 @@ export const Footer = (props: Footer2Props) => {
             <PrivacyPolicyLink />
             <CookiePolicyLink />
           </div>
-          <div className="flex justify-end">
-            <p className="">{footerText}</p>
+          <div className="flex flex-col items-center">
+            <p>{footerText.primaRiga}</p>
+            <p>{footerText.secondaRiga}</p>
+            <p>{footerText.terzaRiga}</p>
+            <p>{footerText.quartaRiga}</p>
+            <p>{footerText.quintaRiga}</p>
           </div>
         </div>
+      </div>
+      <div className="text-right">
+        Produzione
+        <a
+          href="https://www.instagram.com/web.byrey/"
+          className="text-accentYellow"
+          target="_blank" // Opens in a new tab
+          rel="noopener noreferrer" // Security best practice
+        >
+          {" "}
+          @Web By Rey{" "}
+        </a>
+        - Montescagliso
       </div>
     </footer>
   );
@@ -222,5 +241,11 @@ export const Footer2Defaults: Footer2Props = {
       icon: <BiLogoInstagram className="size-6 text-accentYellow" />,
     },
   ],
-  footerText: "© 2024 SSDCamAthena. Tutti i diritti sono riservati.",
+  footerText: {
+    primaRiga: "© S.S.D CAM Athena S.R.L. ",
+    secondaRiga: "Via Bernalda snc",
+    terzaRiga: "75024 MONTESCAGLIOSO (MT)",
+    quartaRiga: "Cod. Fisc. / P.Iva 01433420773",
+    quintaRiga: "Tutti i diritti sono riservati.",
+  },
 };

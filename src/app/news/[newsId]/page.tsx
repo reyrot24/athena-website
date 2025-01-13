@@ -21,6 +21,7 @@ export default async function NewsPage(props: { params: Props }) {
           img={articol.img}
           contenuto={articol.contenuto}
           slug={newsId}
+          pdf={articol.pdf}
         />
       ) : (
         <Articol
@@ -29,6 +30,7 @@ export default async function NewsPage(props: { params: Props }) {
           img={articol.img}
           contenuto={articol.contenuto}
           slug={newsId}
+          pdf={articol.pdf}
         />
       )}
     </div>

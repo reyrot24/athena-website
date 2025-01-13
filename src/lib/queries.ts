@@ -15,7 +15,7 @@ export const QueryNews =
   '*[_type == "news"] | order(data desc) {titolo, img, "slug": slug.current, data, descrizione ,contenuto}';
 
 export const QueryIndividualArticol =
-  '*[_type == "news" && slug.current == $slug][0]{titolo, img, "slug": slug.current, data, descrizione ,contenuto}';
+  '*[_type == "news" && slug.current == $slug][0]{titolo, img, "pdf": pdf.asset._ref,"slug": slug.current, data, descrizione ,contenuto}';
 
 export const QueryRelatedArticols =
   '*[_type == "news" && slug.current != $slug] | order(data desc){titolo, img, "slug": slug.current, data, descrizione ,contenuto}[0..1]';
