@@ -39,14 +39,17 @@ export const SectionNews = async (props: Layout236Props) => {
                 className="flex flex-col justify-between"
               >
                 <div>
-                  <Image
-                    src={urlFor(articol.img).toString()}
-                    alt={articol.titolo}
-                    className="object-cover w-full h-[250px] border hover:border-accentYellow"
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                  />
+                  {articol.img !== null && (
+                    <Image
+                      src={urlFor(articol.img).toString()}
+                      alt={articol.titolo}
+                      className="object-cover w-full h-[250px] border hover:border-accentYellow"
+                      width={0}
+                      height={0}
+                      sizes="100vw"
+                    />
+                  )}
+
                   <h3 className="mt-8 text-xl font-bold md:text-2xl hover:text-accentYellow">
                     {articol.titolo}
                   </h3>

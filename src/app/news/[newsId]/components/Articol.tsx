@@ -67,18 +67,20 @@ const Articol = (props: newstypes) => {
               Pubblicato il <span className="text-accentYellow">{date}</span>
             </p>
           </div>
-          <div className="w-full">
-            <Zoom>
-              <Image
-                className="w-full h-[500px] object-contain"
-                src={urlFor(img).toString()}
-                alt="Immagine"
-                width={0}
-                height={500}
-                sizes="100vh"
-              />
-            </Zoom>
-          </div>
+          {img !== null && (
+            <div className="w-full">
+              <Zoom>
+                <Image
+                  className="w-full h-[500px] object-contain"
+                  src={urlFor(img).toString()}
+                  alt="Immagine"
+                  width={0}
+                  height={500}
+                  sizes="100vh"
+                />
+              </Zoom>
+            </div>
+          )}
         </div>
         <div className="mt-24 text-xl text-justify ">
           <PortableText value={contenuto} components={components} />
@@ -90,7 +92,7 @@ const Articol = (props: newstypes) => {
               target="_blank"
               className="flex flex-col items-center"
             >
-              <BiSolidFilePdf size="3rem" className="text-accentYellow" />
+              <BiSolidFilePdf size={50} className="text-accentYellow" />
               Apri PDF
             </a>
           </div>
