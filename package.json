@@ -18,7 +18,7 @@
     "@sanity-typed/types": "^1.2.5",
     "@sanity/client": "^6.22.2",
     "@sanity/image-url": "^1.1.0",
-    "@sanity/vision": "^2.2.6",
+    "@sanity/vision": "^3.52.2",
     "@vercel/blob": "^0.27.3",
     "@vis.gl/react-google-maps": "^1.4.0",
     "class-variance-authority": "^0.7.0",
@@ -34,7 +34,7 @@
     "react-dom": "^18.3.1",
     "react-medium-image-zoom": "^5.2.10",
     "react-vertical-timeline-component": "^3.6.0",
-    "sanity": "^2.36.6",
+    "sanity": "^3.52.2",
     "tailwind-merge": "^2.5.4",
     "tailwindcss-animate": "^1.0.7"
   },
