@@ -8,8 +8,8 @@ import { newstypes } from "@/types/news";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 
-export const VideoArticol = async (props: newstypes) => {
-  const { titolo, data, img, contenuto, slug } = props;
+export const VideoArticol = async (props: Omit<newstypes, "video">) => {
+  const { titolo, data, img, contenuto, slug, link } = props;
   const date = new Date(data).toLocaleDateString();
 
   const components: PortableTextComponents = {
@@ -41,9 +41,6 @@ export const VideoArticol = async (props: newstypes) => {
     },
   };
 
-  const video =
-    "https://d40aayui6fhg4khn.public.blob.vercel-storage.com/Video-CQdet7xCoYB7i9McaJhn6EYOhDYqdr.mp4";
-  console.log(video);
   return (
     <section>
       <div className="container">
@@ -77,7 +74,7 @@ export const VideoArticol = async (props: newstypes) => {
               className=""
               poster={urlFor(img).toString()}
             >
-              <source src={video} type="video/mp4" />
+              <source src={link} type="video/mp4" />
             </video>
           </div>
         </div>

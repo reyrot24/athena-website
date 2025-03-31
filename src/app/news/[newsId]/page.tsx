@@ -14,10 +14,11 @@ export default async function NewsPage(props: { params: Props }) {
 
   return (
     <div className="px-[5%] py-12 md:py-10 mt-[80px] bg-bg text-text">
-      {articol.slug === "impossible" ? (
+      {articol.video ? (
         <VideoArticol
           titolo={articol.titolo}
           data={articol.data}
+          link={articol.link}
           img={articol.img}
           contenuto={articol.contenuto}
           slug={newsId}

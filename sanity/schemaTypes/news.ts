@@ -18,6 +18,17 @@ export default {
       },
     },
     {
+      name: 'video',
+      title: 'Questo post contiene un video?',
+      type: 'boolean',
+      description: "Se si, attivare il toggle e inserire il link dall'upload",
+    },
+    {
+      name: 'link',
+      title: 'Link video',
+      type: 'string',
+    },
+    {
       name: 'pdf',
       title: 'PDF',
       type: 'file',

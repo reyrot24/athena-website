@@ -11,7 +11,7 @@ import Zoom from "react-medium-image-zoom";
 import "../../../styles.css";
 import { BiSolidFilePdf } from "react-icons/bi";
 
-const Articol = (props: newstypes) => {
+const Articol = (props: Omit<newstypes, "video">) => {
   const { titolo, data, img, contenuto, slug, pdf } = props;
   const date = new Date(data).toLocaleDateString();
 

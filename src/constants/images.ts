@@ -54,4 +54,8 @@ export const images = {
       alt: "gym",
     },
   ],
+  whatsapp: {
+    src: "/whatsapp.png",
+    alt: "Chat on WhatsApp",
+  },
 };

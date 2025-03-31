@@ -64,7 +64,7 @@ export default function Home() {
             <Header button={buttons[2]} />
             <Corsi />
             <Gallery />
-            <Contact heading="Vieni a trovarci" />
+            <Contact heading="Vieni a trovarci o scrivici" />
             <Footer
               button={buttons[4]}
               logo={images.logo}
