@@ -8,7 +8,6 @@ const config = {
     "./app/**/*.{ts,tsx}",
     "./src/**/*.{ts,tsx}",
   ],
-  presets: [require("@relume_io/relume-tailwind")],
   prefix: "",
   theme: {
     container: {
