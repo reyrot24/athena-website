@@ -5,14 +5,20 @@ import { QueryParams } from "@sanity/client";
 export const QueryChiSiamo =
   '*[_type == "chisiamo"] | order(id asc){nome, descrizione, lavoro, foto}';
 
-export const QueryCorsiEOrari =
+export const QueryCorsiOrari =
   '*[_type == "corsi"] | order(corso asc){corso, lunedi, martedi, mercoledi, giovedi, venerdi, sabato, domenica}';
+
+export const QueryCorsiImg =
+  '*[_type == "corsiImg"] | order(_createdAt asc){nome, image}';
 
 export const QueryGalleria =
   '*[_type == "galleria"] | order(nomeImg asc) {nomeImg, image}';
 
 export const QueryNews =
   '*[_type == "news"] | order(data desc) {titolo, img, "slug": slug.current, data, descrizione ,contenuto}';
+
+export const QueryTestimonianze =
+  '*[_type == "testimonianze" && approved == false] | order(data desc) {valutazione, name, message}';
 
 export const QueryIndividualArticol =
   '*[_type == "news" && slug.current == $slug][0]{titolo,  video, link, img, "pdf": pdf.asset._ref,"slug": slug.current, data, descrizione ,contenuto}';
