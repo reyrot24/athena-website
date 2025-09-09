@@ -1,10 +1,16 @@
 "use client";
-/* import { WorkflowIcon } from "lucide-react";
+import {
+  Dumbbell,
+  Handshake,
+  PartyPopper,
+  Share2,
+  WorkflowIcon,
+} from "lucide-react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
-import { motion } from "framer-motion"; */
+import { motion } from "framer-motion";
 
 import "react-vertical-timeline-component/style.min.css";
 
@@ -15,10 +21,10 @@ type Props = {
 export type Blog41Props = React.ComponentPropsWithoutRef<"section"> &
   Partial<Props>;
 
-/* const item = {
+const item = {
   initial: { opacity: 0, x: -150 },
   whileInView: { opacity: 1, x: 0 },
-}; */
+};
 
 const SectionStoria = (props: Blog41Props) => {
   const {
@@ -61,7 +67,7 @@ const SectionStoria = (props: Blog41Props) => {
           progetto!
         </span>
       </p>
-      {/* <div className="my-14 md:my-20 container">
+      <div className="my-14 md:my-20 container">
         <VerticalTimeline animate={true} lineColor="#f6a14c">
           {array.map((element, i) =>
             i % 2 === 0 ? (
@@ -81,7 +87,14 @@ const SectionStoria = (props: Blog41Props) => {
                     rootMargin: "100px 0px 100px 0px",
                   }}
                   className="vertical-timeline-element--work"
-                  contentStyle={{ background: "#000", color: "#f6a14c" }}
+                  contentStyle={{
+                    borderBottom: "4px",
+                    borderStyle: "solid",
+                    borderBottomColor: "#f6a14c",
+                    boxShadow: "none",
+                    color: "#f6a14c",
+                    background: "#000",
+                  }}
                   contentArrowStyle={{
                     borderRight: "7px solid #f6a14c",
                   }}
@@ -90,11 +103,11 @@ const SectionStoria = (props: Blog41Props) => {
                     background: "#f6a14c",
                     color: "#fff",
                   }}
-                  icon={<WorkflowIcon />}
+                  icon={element.icon}
                 >
                   <h3 className="text-white">{element.title}</h3>
 
-                  <p className="text-white">{element.description}</p>
+                  {/* <p className="text-white">{element.description}</p> */}
                 </VerticalTimelineElement>
               </motion.div>
             ) : (
@@ -114,7 +127,14 @@ const SectionStoria = (props: Blog41Props) => {
                     rootMargin: "100px 0px 100px 0px",
                   }}
                   className="vertical-timeline-element--work"
-                  contentStyle={{ background: "#000", color: "#f6a14c" }}
+                  contentStyle={{
+                    borderBottom: "4px",
+                    borderStyle: "solid",
+                    borderBottomColor: "#f6a14c",
+                    boxShadow: "none",
+                    color: "#f6a14c",
+                    background: "#000",
+                  }}
                   contentArrowStyle={{
                     borderRight: "7px solid #f6a14c",
                   }}
@@ -124,57 +144,47 @@ const SectionStoria = (props: Blog41Props) => {
                     background: "#f6a14c",
                     color: "#fff",
                   }}
-                  icon={<WorkflowIcon />}
+                  icon={element.icon}
                 >
                   <h3 className="text-white">{element.title}</h3>
 
-                  <p className="text-white">{element.description}</p>
+                  {/* <p className="text-white">{element.description}</p> */}
                 </VerticalTimelineElement>
               </motion.div>
             )
           )}
         </VerticalTimeline>
-      </div> */}
+      </div>
     </section>
   );
 };
 
 export default SectionStoria;
 
-/* const array = [
+const array = [
   {
-    title: "Creative Director",
-    place: "Miami, FL",
-    description:
-      "Creative Direction, User Experience, Visual Design, Project Management, Team Leading",
-    date: "2011 - present",
+    title: "Inaugurazione A.S.D. CAM ATHENA",
+    date: "5/09/2022",
+    icon: <PartyPopper />,
   },
   {
-    title: "Creative Director",
-    place: "Miami, FL",
-    description:
-      "Creative Direction, User Experience, Visual Design, Project Management, Team Leading",
-    date: "2011 - present",
+    title: "Ampliamento SALA PESI + ATTREZZI",
+    date: "18/08/2023",
+    icon: <Dumbbell />,
   },
   {
-    title: "Creative Director",
-    place: "Miami, FL",
-    description:
-      "Creative Direction, User Experience, Visual Design, Project Management, Team Leading",
-    date: "2011 - present",
+    title: "Cambio da A.S.D. a SSD CAM ATHENA Srl",
+    date: "01/01/2025",
+    icon: <WorkflowIcon />,
   },
   {
-    title: "Creative Director",
-    place: "Miami, FL",
-    description:
-      "Creative Direction, User Experience, Visual Design, Project Management, Team Leading",
-    date: "2011 - present",
+    title: "Innovazione Digitale",
+    date: "08/05/2025",
+    icon: <Share2 />,
   },
   {
-    title: "Creative Director",
-    place: "Miami, FL",
-    description:
-      "Creative Direction, User Experience, Visual Design, Project Management, Team Leading",
-    date: "2011 - present",
+    title: "Collab. con Comune di Montescaglioso per CAMPUS SPORTIVO BALNEARE",
+    date: "23/06/2025",
+    icon: <Handshake />,
   },
-]; */
+];

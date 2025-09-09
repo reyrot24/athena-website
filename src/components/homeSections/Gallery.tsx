@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/Button";
 import { Links } from "@/constants/links";
 import Image from "next/image";
 import Zoom from "react-medium-image-zoom";
-import "../styles.css";
+import "../../app/styles.css";
 import { motion } from "framer-motion";
 
 type ImageProps = {

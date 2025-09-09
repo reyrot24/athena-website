@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Zoom from "react-medium-image-zoom";
-import "../styles.css";
+import "../../styles.css";
 
 type ImageProps = { src: string; alt: string };
 

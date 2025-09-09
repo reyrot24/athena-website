@@ -3,7 +3,7 @@ import { chisiamotypes } from "@/types/chisiamo";
 /* import { PortableText } from "@portabletext/react"; */
 import Image from "next/image";
 import Zoom from "react-medium-image-zoom";
-import "../styles.css";
+import "../../styles.css";
 
 type Props = {
   heading: string;

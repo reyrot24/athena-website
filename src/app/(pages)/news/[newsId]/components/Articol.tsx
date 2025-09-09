@@ -8,7 +8,7 @@ import { newstypes } from "@/types/news";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import Zoom from "react-medium-image-zoom";
-import "../../../styles.css";
+import "../../../../styles.css";
 import { BiSolidFilePdf } from "react-icons/bi";
 
 const Articol = (props: Omit<newstypes, "video">) => {

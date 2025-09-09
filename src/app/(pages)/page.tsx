@@ -1,17 +1,14 @@
 "use client";
-import { Header } from "./homeSections/Header";
+
 import { buttons } from "@/constants/buttons";
-import Gallery from "./homeSections/Gallery";
-import { Contact } from "./homeSections/Contact";
-import { Corsi } from "./homeSections/Corsi";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Loader from "@/components/clientComponents/Loader";
-import { Navbar } from "./homeSections/Navbar";
-import { images } from "@/constants/images";
-import { Links } from "@/constants/links";
-import { Footer } from "./homeSections/Footer";
 import Head from "next/head";
+import { Header } from "@/components/homeSections/Header";
+import { Corsi } from "@/components/homeSections/Corsi";
+import Gallery from "@/components/homeSections/Gallery";
+import { Contact } from "@/components/homeSections/Contact";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -55,21 +52,10 @@ export default function Home() {
             }}
             transition={{ duration: 2 }}
           >
-            <Navbar
-              animation={true}
-              logo={images.logo}
-              button={buttons[1]}
-              navLinks={Links}
-            />
             <Header button={buttons[2]} />
             <Corsi />
             <Gallery />
             <Contact heading="Vieni a trovarci o scrivici" />
-            <Footer
-              button={buttons[4]}
-              logo={images.logo}
-              columnLinks={Links}
-            />
           </motion.main>
         )}
       </AnimatePresence>

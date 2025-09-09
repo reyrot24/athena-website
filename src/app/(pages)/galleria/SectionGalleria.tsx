@@ -2,7 +2,7 @@ import { urlFor } from "@/client";
 import { galleriatypes } from "@/types/galleria";
 import Image from "next/image";
 import Zoom from "react-medium-image-zoom";
-import "../styles.css";
+import "../../styles.css";
 
 type Props = {
   response: galleriatypes[];

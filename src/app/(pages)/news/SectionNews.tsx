@@ -21,6 +21,7 @@ export const SectionNews = async (props: Layout236Props) => {
     query: QueryNews,
     revalidate: 30,
   });
+
   return (
     <section>
       <h1 className="text-accentYellow flex justify-center items-center mb-14 text-4xl font-bold text-text-alternative md:mb-20 md:text-6xl">
@@ -39,7 +40,7 @@ export const SectionNews = async (props: Layout236Props) => {
                 className="flex flex-col justify-between"
               >
                 <div>
-                  {articol.img !== null && (
+                  {articol.img !== null ? (
                     <Image
                       src={urlFor(articol.img).toString()}
                       alt={articol.titolo}
@@ -48,6 +49,8 @@ export const SectionNews = async (props: Layout236Props) => {
                       height={0}
                       sizes="100vw"
                     />
+                  ) : (
+                    <div className="w-full h-[250px] " />
                   )}
 
                   <h3 className="mt-8 text-xl font-bold md:text-2xl hover:text-accentYellow">

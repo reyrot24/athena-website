@@ -199,7 +199,7 @@ export const Footer = (props: Footer2Props) => {
           {" "}
           @Web By Rey{" "}
         </a>
-        - Montescagliso
+        - Montescaglioso
       </div>
     </footer>
   );
