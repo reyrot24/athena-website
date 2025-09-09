@@ -1,12 +1,15 @@
 import React from "react";
-
 import SectionCorsi from "./SectionCorsi";
-import { corsiImgEDescrizioni } from "@/constants/corsiImg";
+import { QueryCorsiImg, sanityFetch } from "@/lib/queries";
 
-const Corsi = () => {
+const Corsi = async () => {
+  const corsiImg: [] = await sanityFetch({
+    query: QueryCorsiImg,
+    revalidate: 10,
+  });
   return (
-    <section className="py-12 md:py-10 mt-[80px] bg-bg text-text">
-      <SectionCorsi corsi={corsiImgEDescrizioni} />
+    <section className="px-[5%] py-12 md:py-10 mt-[80px] bg-bg text-text">
+      <SectionCorsi corsi={corsiImg} />
     </section>
   );
 };

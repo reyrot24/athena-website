@@ -9,7 +9,7 @@ type Props = {
 };
 
 const ClientSectionOrari = ({ response }: Props) => {
-  const [corsoState, setCorsoState] = useState("Acrobatica");
+  const [corsoState, setCorsoState] = useState(response[0].corso);
 
   return (
     <div className="container mb-20">
