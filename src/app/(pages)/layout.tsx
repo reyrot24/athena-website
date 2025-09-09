@@ -35,7 +35,6 @@ const iubendaBannerConfig: IubendaCookieSolutionBannerConfigInterface = {
 
   // See https://www.iubenda.com/en/help/1205-how-to-configure-your-cookie-solution-advanced-guide
 };
-console.log(iubendaBannerConfig);
 
 export default function RootLayout({
   children,
