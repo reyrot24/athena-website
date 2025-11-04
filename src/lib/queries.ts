@@ -18,7 +18,7 @@ export const QueryNews =
   '*[_type == "news"] | order(data desc) {titolo, img, "slug": slug.current, data, descrizione ,contenuto}';
 
 export const QueryTestimonianze =
-  '*[_type == "testimonianze" && approved == false] | order(data desc) {valutazione, name, message}';
+  '*[_type == "testimonianze" && approved == true] | order(data desc) {valutazione, name, message}';
 
 export const QueryIndividualArticol =
   '*[_type == "news" && slug.current == $slug][0]{titolo,  video, link, img, "pdf": pdf.asset._ref,"slug": slug.current, data, descrizione ,contenuto}';

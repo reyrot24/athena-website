@@ -13,6 +13,7 @@ const Orari = async () => {
       <h1 className="flex text-accentYellow justify-center items-center mb-14 text-4xl font-bold md:mb-20 md:text-6xl">
         ORARI CORSI
       </h1>
+
       <ClientComponentOrari response={orari} />
     </section>
   );

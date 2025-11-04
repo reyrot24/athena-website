@@ -1,4 +1,3 @@
-import React from "react";
 import Articol from "./components/Articol";
 import { getArticol, QueryIndividualArticol } from "@/lib/queries";
 import { VideoArticol } from "./components/VideoArticol";

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { oraritypes } from "@/types/orari";
 
@@ -10,6 +10,19 @@ type Props = {
 
 const ClientSectionOrari = ({ response }: Props) => {
   const [corsoState, setCorsoState] = useState(response[0].corso);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 300); // short hydration delay
+    return () => clearTimeout(t);
+  }, []);
+
+  if (loading)
+    return (
+      <div className="flex h-screen w-full items-center justify-center">
+        <div className="animate-spin rounded-full h-10 w-10 border-4 border-accentYellow border-t-transparent" />
+      </div>
+    );
 
   return (
     <div className="container mb-20">

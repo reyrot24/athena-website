@@ -1,4 +1,3 @@
-import React from "react";
 import SectionGalleria from "./SectionGalleria";
 import { galleriatypes } from "@/types/galleria";
 import { QueryGalleria, sanityFetch } from "@/lib/queries";

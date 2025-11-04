@@ -1,4 +1,3 @@
-import React from "react";
 import { RxChevronLeft } from "react-icons/rx";
 import RelatedPosts from "./RelatedPosts";
 import Link from "next/link";

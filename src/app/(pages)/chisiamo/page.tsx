@@ -1,8 +1,12 @@
-import React from "react";
 import SectionChisiamo from "./SectionChisiamo";
 import { chisiamotypes } from "@/types/chisiamo";
 import { QueryChiSiamo, sanityFetch } from "@/lib/queries";
 import SectionStoria from "./SectionStoria";
+
+export const metadata = {
+  title: "Chi Siamo | SSD CAM Athena",
+  description: "Scopri chi siamo e la nostra missione",
+};
 
 export default async function ChiSiamo() {
   const chisiamo: chisiamotypes[] = await sanityFetch({

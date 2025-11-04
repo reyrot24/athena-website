@@ -24,15 +24,15 @@ const SectionCorsi = (props: Props) => {
       <h1 className="flex text-accentYellow justify-center items-center mb-14 text-4xl font-bold md:mb-20 md:text-6xl">
         I NOSTRI CORSI
       </h1>
-      <div className=" container grid grid-cols-1 md:grid-cols-3 gap-16">
+      <div className=" grid grid-cols-1 md:grid-cols-3 gap-8">
         {corsi.map((corso, i) => (
           <div key={i}>
-            <div className="relative flex items-center  ">
+            <div className="relative flex items-center">
               <Zoom>
                 <Image
                   src={urlFor(corso.image).toString()}
                   alt={corso.nome}
-                  className="object-contain border border-accentYellow rounded-lg"
+                  className="object-cover border h-[500px] border-accentYellow rounded-lg"
                   width={500}
                   height={500}
                 />

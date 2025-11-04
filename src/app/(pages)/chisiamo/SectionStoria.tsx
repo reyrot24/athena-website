@@ -13,6 +13,7 @@ import {
 import { motion } from "framer-motion";
 
 import "react-vertical-timeline-component/style.min.css";
+import { useEffect, useState } from "react";
 
 type Props = {
   heading: string;
@@ -32,6 +33,19 @@ const SectionStoria = (props: Blog41Props) => {
   } = {
     ...props,
   } as Props;
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => setLoading(false), 300); // short hydration delay
+    return () => clearTimeout(t);
+  }, []);
+
+  if (loading)
+    return (
+      <div className="flex h-screen w-full items-center justify-center">
+        <div className="animate-spin rounded-full h-10 w-10 border-4 border-accentYellow border-t-transparent" />
+      </div>
+    );
 
   return (
     <section className="mb-20 ">

@@ -25,6 +25,18 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
   },
+  keywords: [
+    "palestra Montescaglioso",
+    "fitness Montescaglioso",
+    "kick boxing Montescaglioso",
+    "calisthenics Montescaglioso",
+    "sala pesi Montescaglioso",
+    "SSD CAM Athena",
+    "allenamento Montescaglioso",
+    "Montescaglioso palestra",
+    "Montescaglioso danza",
+  ],
+  authors: [{ name: "SSD CAM Athena" }],
 };
 
 const iubendaBannerConfig: IubendaCookieSolutionBannerConfigInterface = {

@@ -1,6 +1,10 @@
-import React from "react";
 import SectionCorsi from "./SectionCorsi";
 import { QueryCorsiImg, sanityFetch } from "@/lib/queries";
+
+export const metadata = {
+  title: "I nostri corsi | SSD CAM Athena",
+  description: "Scopri i nostri corsi",
+};
 
 const Corsi = async () => {
   const corsiImg: [] = await sanityFetch({

@@ -39,11 +39,11 @@ export async function POST(req: Request) {
 
     await client.create(doc);
 
-    return NextResponse.json({ message: "Testimonial submitted for review" });
+    return NextResponse.json({ message: "Recensione inviata con successo" });
   } catch (err) {
     console.error(err);
     return NextResponse.json(
-      { error: "Failed to save testimonial" },
+      { error: "Invio recensione fallito" },
       { status: 500 }
     );
   }
