@@ -4,7 +4,6 @@ import { getArticols, QueryRelatedArticols } from "@/lib/queries";
 import { newstypes } from "@/types/news";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import { RxChevronRight } from "react-icons/rx";
 
 type Props = {
