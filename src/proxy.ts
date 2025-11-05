@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
   // Protect only /sign-in route
   if (!req.nextUrl.pathname.startsWith("/sign-in")) {
     return NextResponse.next();
