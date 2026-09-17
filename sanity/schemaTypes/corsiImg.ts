@@ -1,21 +1,26 @@
-export default {
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
   name: 'corsiImg',
-  title: 'Corsi Immagini',
+  title: 'Locandine corsi',
   type: 'document',
   fields: [
-    {
+    defineField({
       name: 'nome',
-      title: 'Nome',
+      title: 'Nome del corso',
       type: 'string',
-    },
-    {
+      validation: (rule) => rule.required(),
+    }),
+    defineField({
       name: 'image',
-      title: 'Image',
+      title: 'Locandina',
       type: 'image',
-      option: {
-        hotspot: true,
-        accept: 'image/*',
-      },
-    },
+      options: {hotspot: true, accept: 'image/*'},
+      description: 'La locandina viene mostrata intera nella pagina «Corsi».',
+      validation: (rule) => rule.required(),
+    }),
   ],
-}
+  preview: {
+    select: {title: 'nome', media: 'image'},
+  },
+})

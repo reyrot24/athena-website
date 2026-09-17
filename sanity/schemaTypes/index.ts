@@ -1,4 +1,3 @@
-import admin from './admin'
 import chisiamo from './chisiamo'
 import corsiImg from './corsiImg'
 import galleria from './galleria'
@@ -15,5 +14,4 @@ export const schemaTypes = [
   news,
   lanostrastoria,
   testimonianze,
-  admin,
 ]

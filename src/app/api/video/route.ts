@@ -1,42 +1,30 @@
 import { handleUpload, type HandleUploadBody } from "@vercel/blob/client";
 import { NextResponse } from "next/server";
+import { isAuthenticated } from "@/lib/auth";
 
-export async function POST(request: Request): Promise<NextResponse> {
+export async function POST(request: Request) {
   const body = (await request.json()) as HandleUploadBody;
 
   try {
-    const jsonResponse = await handleUpload({
+    const response = await handleUpload({
       body,
       request,
-      onBeforeGenerateToken: async () =>
-        /* clientPayload */
-        {
-          // Generate a client token for the browser to upload the file
-          // ⚠️ Authenticate and authorize users before generating the token.
-          // Otherwise, you're allowing anonymous uploads.
-
-          return {
-            allowedContentTypes: ["video/mp4"],
-            tokenPayload: JSON.stringify({
-              // optional, sent to your server on upload completion
-              // you could pass a user id from auth, or a value from clientPayload
-            }),
-          };
-        },
-      onUploadCompleted: async ({ blob, tokenPayload }) => {
-        // Get notified of client upload completion
-        // ⚠️ This will not work on `localhost` websites,
-        // Use ngrok or similar to get the full upload flow
-
-        console.log("blob upload completed", blob, tokenPayload);
+      // Chiamato dal browser: qui c'è il cookie di sessione dell'area riservata.
+      // (La notifica di fine upload arriva invece dai server di Vercel, firmata.)
+      onBeforeGenerateToken: async () => {
+        if (!(await isAuthenticated())) throw new Error("Sessione scaduta: accedi di nuovo.");
+        return {
+          allowedContentTypes: ["video/mp4"],
+          maximumSizeInBytes: 500 * 1024 * 1024,
+          addRandomSuffix: true,
+        };
+      },
+      onUploadCompleted: async ({ blob }) => {
+        console.log("Video caricato su Vercel Blob:", blob.url);
       },
     });
-
-    return NextResponse.json(jsonResponse);
+    return NextResponse.json(response);
   } catch (error) {
-    return NextResponse.json(
-      { error: (error as Error).message },
-      { status: 400 } // The webhook will retry 5 times waiting for a 200
-    );
+    return NextResponse.json({ error: (error as Error).message }, { status: 400 });
   }
 }

@@ -1,37 +1,50 @@
-export default {
+import {defineField, defineType} from 'sanity'
+
+export default defineType({
   name: 'testimonianze',
   title: 'Testimonianze',
   type: 'document',
   fields: [
-    {
+    defineField({
+      name: 'approved',
+      title: 'Approvata',
+      type: 'boolean',
+      description: 'Solo le recensioni approvate compaiono sul sito.',
+      initialValue: false,
+    }),
+    defineField({
       name: 'valutazione',
       title: 'Valutazione',
       type: 'number',
-      validation: (rule: any) => rule.min(0) && rule.max(5),
-    },
-    {
+      options: {list: [1, 2, 3, 4, 5]},
+      validation: (rule) => rule.required().integer().min(1).max(5),
+    }),
+    defineField({
       name: 'name',
-      title: 'Name',
+      title: 'Nome',
       type: 'string',
-      description: 'Primo nome o nickname (opzionale)',
-    },
-    {
+      description: 'Primo nome o nickname (opzionale).',
+    }),
+    defineField({
       name: 'message',
-      title: 'Message',
+      title: 'Recensione',
       type: 'text',
-      validation: (rule: any) => rule.required().max(500),
-    },
-    {
-      name: 'approved',
-      title: 'Approva',
-      type: 'boolean',
-      initialValue: false,
-    },
-    {
+      rows: 5,
+      validation: (rule) => rule.required().max(500),
+    }),
+    defineField({
       name: 'date',
-      title: 'Date',
+      title: 'Data',
       type: 'datetime',
       initialValue: () => new Date().toISOString(),
-    },
+    }),
   ],
-}
+  orderings: [{title: 'Più recenti', name: 'dateDesc', by: [{field: 'date', direction: 'desc'}]}],
+  preview: {
+    select: {name: 'name', rating: 'valutazione', approved: 'approved', message: 'message'},
+    prepare: ({name, rating, approved, message}) => ({
+      title: `${'★'.repeat(rating ?? 0)} ${name || 'Anonimo'}`,
+      subtitle: `${approved ? '✅ Approvata' : '⏳ Da approvare'} · ${message ?? ''}`,
+    }),
+  },
+})

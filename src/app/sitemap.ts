@@ -1,66 +1,25 @@
-import { QueryNews, sanityFetch } from "@/lib/queries";
-import { newstypes } from "@/types/news";
-import { MetadataRoute } from "next";
+import type { MetadataRoute } from "next";
+import { navLinks, site } from "@/lib/site";
+import { getNewsList } from "@/sanity/data";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://ssdcamathena.it";
+  const news = await getNewsList();
 
-  const news: newstypes[] = await sanityFetch({
-    query: QueryNews,
-    revalidate: 30,
-  });
-
-  const staticPages: MetadataRoute.Sitemap = [
-    {
-      url: `${baseUrl}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 1,
-    },
-    {
-      url: `${baseUrl}/chisiamo`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
+  const pages: MetadataRoute.Sitemap = [
+    { url: site.url, changeFrequency: "weekly", priority: 1 },
+    ...navLinks.map((link) => ({
+      url: `${site.url}${link.href}`,
+      changeFrequency: link.href === "/news" ? ("weekly" as const) : ("monthly" as const),
       priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/corsi`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/orari`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/testimonianze`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/galleria`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/news`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
+    })),
   ];
 
-  const dynamicNewsPages: MetadataRoute.Sitemap = news.map((item) => ({
-    url: `${baseUrl}/news/${item.slug}`, // or item.slug.current, depending on your schema
-    lastModified: new Date(item.data || new Date()),
-    changeFrequency: "weekly",
-    priority: 0.7,
+  const articles: MetadataRoute.Sitemap = news.map((item) => ({
+    url: `${site.url}/news/${item.slug}`,
+    lastModified: item.data ?? undefined,
+    changeFrequency: "monthly",
+    priority: 0.6,
   }));
 
-  return [...staticPages, ...dynamicNewsPages];
+  return [...pages, ...articles];
 }
