@@ -124,7 +124,9 @@ export function TodaySchedule({ schedule }: { schedule: ScheduleDoc[] }) {
                   </div>
                 </div>
               ) : (
-                <ol className="no-scrollbar max-h-[34rem] divide-y overflow-y-auto">
+                // Con mouse/trackpad la pagina non riparte a scorrere quando la lista arriva in fondo;
+                // sul touch no, altrimenti chi scorre la pagina col dito resterebbe bloccato sulla lista.
+                <ol className="scrollbar-thin max-h-[34rem] divide-y overflow-y-auto pr-1 pointer-fine:overscroll-contain">
                   {sessions.map((session, i) => {
                     const status = isToday && now ? slotStatus(session.slot, now.minutes) : "upcoming";
                     return (

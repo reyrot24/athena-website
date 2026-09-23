@@ -10,7 +10,9 @@ import { HeroSlideshow, type HeroSlide } from "./hero-slideshow";
 export async function Hero() {
   const gallery = await getGallery();
   // Foto orizzontali della galleria Sanity (la palestra vera) tra due immagini d'atmosfera.
-  const photos = gallery.filter((item) => item.image.width / item.image.height >= 1.25).slice(0, 3);
+  const photos = gallery
+    .filter((item) => item.image.width / item.image.height >= 1.25)
+    .slice(0, 3);
   const slides: HeroSlide[] = [
     { src: "/man-pesi.jpg" },
     ...photos.map((item) => ({ image: item.image })),
@@ -24,8 +26,14 @@ export async function Hero() {
         aria-hidden
         className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(11_11_12/0.7)_0%,rgb(11_11_12/0.3)_35%,rgb(11_11_12/0.85)_78%,#0b0b0c_100%)]"
       />
-      <div aria-hidden className="absolute -bottom-48 -left-40 -z-10 size-[38rem] rounded-full bg-brand/25 blur-3xl" />
-      <div aria-hidden className="grain pointer-events-none absolute inset-0 -z-10" />
+      <div
+        aria-hidden
+        className="absolute -bottom-48 -left-40 -z-10 size-[38rem] rounded-full bg-brand/25 blur-3xl"
+      />
+      <div
+        aria-hidden
+        className="grain pointer-events-none absolute inset-0 -z-10"
+      />
 
       <div className="container-page relative flex flex-1 flex-col justify-end pt-32 pb-12 sm:pb-16">
         <p
@@ -41,7 +49,10 @@ export async function Hero() {
         </p>
 
         <h1 className="heading-display mt-6 text-[clamp(4.75rem,21vw,17rem)] leading-[0.82]">
-          <span className="hero-rise txt-stroke block text-bone/85" style={riseDelay(0.1)}>
+          <span
+            className="hero-rise txt-stroke block text-bone/85"
+            style={riseDelay(0.1)}
+          >
             We are
           </span>
           <span className="hero-rise txt-gradient block" style={riseDelay(0.2)}>
@@ -50,14 +61,22 @@ export async function Hero() {
         </h1>
 
         <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <p className="hero-rise max-w-xl text-lg text-bone/80 sm:text-xl" style={riseDelay(0.3)}>
-            Sala pesi, corsi e discipline per tutte le età. Un team di giovani professionisti e un
-            ambiente inclusivo e stimolante, nel cuore di Montescaglioso.
+          <p
+            className="hero-rise max-w-xl text-lg text-bone/80 sm:text-xl"
+            style={riseDelay(0.3)}
+          >
+            Sala pesi, corsi e discipline per tutte le età. Un team di giovani
+            professionisti e un ambiente inclusivo e stimolante, nel cuore di
+            Montescaglioso.
           </p>
-          <div className="hero-rise flex flex-wrap gap-3" style={riseDelay(0.4)}>
+          <div
+            className="hero-rise flex flex-wrap gap-3"
+            style={riseDelay(0.4)}
+          >
             <Button asChild size="lg">
               <Link href="/corsi">
-                Scopri i corsi <ArrowRight className="transition-transform group-hover/btn:translate-x-1" />
+                Scopri i corsi{" "}
+                <ArrowRight className="transition-transform group-hover/btn:translate-x-1" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="glass">
