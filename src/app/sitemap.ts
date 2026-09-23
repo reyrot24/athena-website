@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { navLinks, site } from "@/lib/site";
+import { fesrProject, navLinks, site } from "@/lib/site";
 import { getNewsList } from "@/sanity/data";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -12,6 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: link.href === "/news" ? ("weekly" as const) : ("monthly" as const),
       priority: 0.8,
     })),
+    { url: `${site.url}${fesrProject.href}`, changeFrequency: "yearly", priority: 0.4 },
   ];
 
   const articles: MetadataRoute.Sitemap = news.map((item) => ({

@@ -5,7 +5,7 @@ import Link from "next/link";
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { DAYS, findCourse, slotsFor } from "@/lib/schedule";
-import { navLinks, site, whatsappLink } from "@/lib/site";
+import { fesrProject, navLinks, site, whatsappLink } from "@/lib/site";
 import { getSchedule } from "@/sanity/data";
 import { CookiePreferencesButton } from "./cookie-preferences-button";
 
@@ -85,6 +85,13 @@ export async function SiteFooter() {
               <FacebookIcon className="size-5" />
             </a>
           </div>
+          <Link
+            href={fesrProject.href}
+            aria-label="Progetto cofinanziato dall'Unione europea"
+            className="mt-8 block max-w-xs rounded-2xl bg-white p-3 transition hover:ring-2 hover:ring-brand"
+          >
+            <Image src={fesrProject.logos} alt="" width={1600} height={242} sizes="320px" className="h-auto w-full" />
+          </Link>
         </div>
 
         <nav aria-label="Link del sito">
@@ -162,6 +169,9 @@ export async function SiteFooter() {
             Cookie Policy
           </a>
           <CookiePreferencesButton className="hover:text-bone" />
+          <Link href={fesrProject.href} className="hover:text-bone">
+            Progetti finanziati UE
+          </Link>
           <a
             href={site.credits.url}
             target="_blank"

@@ -43,6 +43,16 @@ export const site = {
   credits: { label: "Web By Rey", url: "https://www.instagram.com/web.byrey/" },
 } as const;
 
+/** Progetto cofinanziato FESR: la pagina e il link nel footer sono obblighi di pubblicità del bando. */
+export const fesrProject = {
+  href: "/progetti-finanziati",
+  title: "Innovazione tecnologica e potenziamento dei servizi della SSD CAM Athena SRL",
+  programme: "Programma Regionale Basilicata FESR FSE+ 2021-2027",
+  cup: "F45H26000230007",
+  poster: "/fesr/poster-progetto-fesr.pdf",
+  logos: "/fesr/loghi-fesr.png",
+} as const;
+
 export function whatsappLink(message = "Ciao Athena! Vorrei informazioni su corsi e abbonamenti.") {
   return `https://wa.me/${site.whatsappNumber}?text=${encodeURIComponent(message)}`;
 }
