@@ -34,12 +34,6 @@ export const site = {
     facebook: "https://www.facebook.com/profile.php?id=61552120251038",
   },
   legal: { company: "S.S.D. CAM Athena S.R.L.", vat: "01433420773" },
-  iubenda: {
-    siteId: 3822715,
-    cookiePolicyId: 94168299,
-    privacyUrl: "https://www.iubenda.com/privacy-policy/94168299",
-    cookieUrl: "https://www.iubenda.com/privacy-policy/94168299/cookie-policy",
-  },
   credits: { label: "Web By Rey", url: "https://www.instagram.com/web.byrey/" },
 } as const;
 

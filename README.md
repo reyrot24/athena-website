@@ -9,7 +9,7 @@ Sito della palestra **SSD CAM Athena** di Montescaglioso: [ssdcamathena.it](http
 - **Tailwind CSS 4** (configurazione CSS-first in `src/app/globals.css`)
 - **motion** per le animazioni, **Radix UI** per dialog e lightbox accessibili
 - **Sanity** come CMS: `next-sanity` 13 con **Sanity Live** (contenuti aggiornati in tempo reale)
-- **Vercel Blob** per i video delle news, **iubenda** per i cookie
+- **Vercel Blob** per i video delle news; consenso per Google Maps gestito in casa (`src/lib/consent.ts`), niente banner
 
 ## Avvio in locale
 

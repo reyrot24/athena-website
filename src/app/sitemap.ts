@@ -12,7 +12,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: link.href === "/news" ? ("weekly" as const) : ("monthly" as const),
       priority: 0.8,
     })),
-    { url: `${site.url}${fesrProject.href}`, changeFrequency: "yearly", priority: 0.4 },
+    ...[fesrProject.href, "/privacy", "/cookie-policy"].map((href) => ({
+      url: `${site.url}${href}`,
+      changeFrequency: "yearly" as const,
+      priority: 0.3,
+    })),
   ];
 
   const articles: MetadataRoute.Sitemap = news.map((item) => ({

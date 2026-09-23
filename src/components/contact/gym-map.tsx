@@ -1,26 +1,24 @@
 "use client";
 
-import { ConsentAwareWrapper, useIubenda } from "@mep-agency/next-iubenda";
 import { AdvancedMarker, APIProvider, Map as GoogleMap, Pin } from "@vis.gl/react-google-maps";
 import { ArrowUpRight, MapPin } from "lucide-react";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { setMapsConsent, useMapsConsent } from "@/lib/consent";
 import { site } from "@/lib/site";
 
 const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API;
 const mapId = process.env.NEXT_PUBLIC_GOOGLE_MAPS_ID_MAP;
 
-/** Google Maps viene caricata solo dopo il consenso ai cookie "esperienza". */
+/** Google Maps viene caricata solo dopo un clic esplicito dell'utente (vedi `lib/consent`). */
 export function GymMap() {
-  if (!apiKey) return <MapPlaceholder />;
+  const consent = useMapsConsent();
+
+  if (!apiKey || consent === null) return <MapPlaceholder />;
+  if (!consent) return <MapPlaceholder askConsent />;
 
   return (
-    <ConsentAwareWrapper
-      requiredGdprPurposes={["experience"]}
-      useDefaultStyles={false}
-      className="size-full"
-      customLoadingNodes={<MapPlaceholder />}
-      customConsentNotGrantedNodes={<MapPlaceholder askConsent />}
-    >
+    <div className="size-full">
       <APIProvider apiKey={apiKey}>
         <GoogleMap
           defaultZoom={15}
@@ -36,7 +34,7 @@ export function GymMap() {
           </AdvancedMarker>
         </GoogleMap>
       </APIProvider>
-    </ConsentAwareWrapper>
+    </div>
   );
 }
 
@@ -59,12 +57,19 @@ function MapPlaceholder({ askConsent = false }: { askConsent?: boolean }) {
         </p>
         {askConsent && (
           <p className="mt-4 text-sm text-bone/60">
-            La mappa interattiva usa Google Maps: per vederla accetta i cookie di tipo
-            &laquo;Esperienza&raquo;.
+            La mappa interattiva è fornita da Google Maps, che può raccogliere dati e usare cookie.
+            Si carica solo se lo scegli.{" "}
+            <Link href="/cookie-policy" className="underline underline-offset-2 hover:text-bone">
+              Cookie policy
+            </Link>
           </p>
         )}
         <div className="mt-6 flex flex-wrap justify-center gap-3">
-          {askConsent && <ConsentButton />}
+          {askConsent && (
+            <Button type="button" onClick={() => setMapsConsent(true)}>
+              <MapPin /> Mostra mappa
+            </Button>
+          )}
           <Button asChild variant="glass">
             <a href={site.address.mapsUrl} target="_blank" rel="noopener noreferrer">
               Indicazioni <ArrowUpRight />
@@ -73,23 +78,5 @@ function MapPlaceholder({ askConsent = false }: { askConsent?: boolean }) {
         </div>
       </div>
     </div>
-  );
-}
-
-function ConsentButton() {
-  const { openPreferences } = useIubenda();
-  return (
-    <Button
-      type="button"
-      onClick={() => {
-        try {
-          openPreferences();
-        } catch {
-          // iubenda non ancora caricato.
-        }
-      }}
-    >
-      Gestisci consensi
-    </Button>
   );
 }

@@ -8,7 +8,6 @@ const nextConfig: NextConfig = {
     qualities: [75, 90],
     remotePatterns: [{ protocol: "https", hostname: "cdn.sanity.io" }],
   },
-  transpilePackages: ["@mep-agency/next-iubenda"],
   poweredByHeader: false,
 };
 

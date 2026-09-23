@@ -162,12 +162,12 @@ export async function SiteFooter() {
           © {year} {site.legal.company} · P.IVA {site.legal.vat}
         </p>
         <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
-          <a href={site.iubenda.privacyUrl} target="_blank" rel="noopener noreferrer" className="hover:text-bone">
+          <Link href="/privacy" className="hover:text-bone">
             Privacy Policy
-          </a>
-          <a href={site.iubenda.cookieUrl} target="_blank" rel="noopener noreferrer" className="hover:text-bone">
+          </Link>
+          <Link href="/cookie-policy" className="hover:text-bone">
             Cookie Policy
-          </a>
+          </Link>
           <CookiePreferencesButton className="hover:text-bone" />
           <Link href={fesrProject.href} className="hover:text-bone">
             Progetti finanziati UE

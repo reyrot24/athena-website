@@ -2,6 +2,7 @@
 
 import { ArrowRight, Check, LoaderCircle, MessageCircle, Star } from "lucide-react";
 import { motion } from "motion/react";
+import Link from "next/link";
 import { useActionState, useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -171,6 +172,13 @@ function ReviewForm({ onClose }: { onClose: () => void }) {
           </>
         )}
       </Button>
+
+      <p className="text-center text-xs text-muted-foreground">
+        Inviando la recensione acconsenti alla sua pubblicazione dopo l&apos;approvazione dello staff.{" "}
+        <Link href="/privacy" onClick={onClose} className="font-semibold text-brand-ink underline-offset-2 hover:underline">
+          Privacy policy
+        </Link>
+      </p>
     </form>
   );
 }
